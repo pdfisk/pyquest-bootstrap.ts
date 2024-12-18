@@ -1,2 +1,2 @@
-browserify ./tmp/app.js -o ./tmp/app.js
-java -jar ./lib/compiler.jar --compilation_level WHITESPACE_ONLY --js ./tmp/app.js --js_output_file ./dist/app.js
+browserify ./tmp/src/index.js -o ./tmp/pyquest.js
+java -jar ./lib/compiler.jar --compilation_level WHITESPACE_ONLY --js ./tmp/pyquest.js --js_output_file ./dist/pyquest.js
