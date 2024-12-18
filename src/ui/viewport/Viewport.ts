@@ -1,4 +1,6 @@
-export class Viewport {
+import { Widget } from "../core";
+
+export class Viewport extends Widget {
 
     static instance: Viewport;
 
@@ -9,7 +11,8 @@ export class Viewport {
     }
 
     constructor() {
-        console.log('PYQUEST VIEWPORT');
+        super();
+        console.log('VIEWPORT');
     }
 
 }
