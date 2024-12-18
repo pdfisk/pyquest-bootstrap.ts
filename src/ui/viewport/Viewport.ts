@@ -1,6 +1,6 @@
-import { Widget } from "../core";
+import { RootElement } from "../core/elements/RootElement";
 
-export class Viewport extends Widget {
+export class Viewport extends RootElement {
 
     static instance: Viewport;
 
