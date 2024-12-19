@@ -1,4 +1,5 @@
 import { AbstractElement } from "./AbstractElement";
+import { DivElement } from "./DivElement";
 
 export class RootElement extends AbstractElement {
     static instance: RootElement;
@@ -13,9 +14,13 @@ export class RootElement extends AbstractElement {
         super();
     }
 
-    addStyles() {
-        super.addStyles();
-        this.addStyle('backgroundColor', 'red');
+    addChildren() {
+        this.addChild(new DivElement());
+    }
+
+    setProperties() {
+        super.setProperties();
+        this.setBackgroundColor('red');
     }
 
     createElement() {
