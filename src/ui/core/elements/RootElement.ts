@@ -12,24 +12,25 @@ export class RootElement extends AbstractElement {
 
     private constructor() {
         super();
+        window.onload = () => { this.onLoad(); }
     }
 
     addChildren() {
         this.addChild(new DivElement());
     }
 
-    setProperties() {
-        super.setProperties();
-        this.setBackgroundColor('red');
-    }
-
-    createElement() {
-        window.onload = () => { this.onLoad(); }
+    createElement(): HTMLElement | null {
+        return null;
     }
 
     onLoad() {
         this.element = document.body;
-        super.onLoad();
+        this.renderChildren();
+    }
+
+    setProperties() {
+        super.setProperties();
+        this.setBackgroundColor('red');
     }
 
 }

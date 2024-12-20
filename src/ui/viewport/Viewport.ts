@@ -1,7 +1,6 @@
-import { DivElement } from "../core/elements/DivElement";
 import { RootElement } from "../core/elements/RootElement";
 
-export class Viewport extends DivElement {
+export class Viewport  {
     rootElement: RootElement;
     static instance: Viewport;
 
@@ -12,8 +11,7 @@ export class Viewport extends DivElement {
     }
 
     private constructor() {
-        super();
-        this.rootElement = RootElement.getInstance();
+         this.rootElement = RootElement.getInstance();
         console.log('VIEWPORT');
         (window as any).X = this;
     }

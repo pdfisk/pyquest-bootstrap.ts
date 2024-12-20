@@ -7,8 +7,8 @@ export class DivElement extends AbstractElement {
         console.log('creating div');
     }
 
-    createElement() {
-        this.element = document.createElement('div');
+    createElement(): HTMLElement | null {
+        return document.createElement('div');
     }
 
     setProperties() {

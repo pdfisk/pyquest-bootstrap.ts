@@ -1,27 +1,37 @@
 export abstract class AbstractElement {
     children: AbstractElement[] = [];
-    element: HTMLElement | null = null;
+    element: HTMLElement|null;
 
     constructor() {
-        this.createElement();
+        this.element = this.createElement();
         this.addChildren();
     }
 
     addChild(child: AbstractElement) {
         this.children.push(child);
-        if (child.element !== null)
-            this.element?.appendChild(child.element)
     }
 
     addChildren() {
     }
 
-    abstract createElement(): void;
+    abstract createElement(): HTMLElement|null;
 
     onLoad() {
         this.setProperties();
-        for(let child of this.children)
+        for (let child of this.children)
             child.onLoad();
+    }
+
+    renderChild(child: AbstractElement) {
+        if (this.element !== null && child.element !== null)
+            this.element.appendChild(child.element)
+    }
+
+    renderChildren() {
+        for (let child of this.children) {
+            this.renderChild(child);
+            child.renderChildren();
+        }
     }
 
     setProperties() {
