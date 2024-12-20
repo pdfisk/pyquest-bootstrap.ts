@@ -1,5 +1,5 @@
 import { AbstractElement } from "./AbstractElement";
-import { TopMenuElement } from "./TopMenuElement";
+import { TopMenuPage } from "./TopMenuPage";
 
 export class RootElement extends AbstractElement {
     static instance: RootElement;
@@ -16,7 +16,7 @@ export class RootElement extends AbstractElement {
     }
 
     addChildren() {
-        this.addChild(new TopMenuElement());
+        this.addChild(new TopMenuPage());
     }
 
     createElement(): HTMLElement | null {
@@ -28,10 +28,6 @@ export class RootElement extends AbstractElement {
         this.addClasses();
         this.renderChildren();
         this.setProperties();
-    }
-
-    setProperties() {
-        super.setProperties();
     }
 
 }

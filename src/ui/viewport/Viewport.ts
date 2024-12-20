@@ -12,7 +12,6 @@ export class Viewport {
 
     private constructor() {
         this.rootElement = RootElement.getInstance();
-        console.log('VIEWPORT');
         (window as any).X = this;
     }
 

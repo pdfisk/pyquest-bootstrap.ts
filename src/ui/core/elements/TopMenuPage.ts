@@ -1,16 +1,9 @@
-import { BrElement } from "./BrElement";
-import { FillContainer } from "./FlillContainer";
-import { H3Element } from "./H3Element";
+import { AbstractElement } from "./AbstractElement";
 import { LiElement } from "./LiElement";
+import { Page } from "./Page";
 import { UlElement } from "./UlElement";
 
-export class TopMenuElement extends FillContainer {
-
-    addChildren() {
-        this.addChild(new H3Element('Top Menu'));
-        this.addChild(new BrElement());
-        this.addChild(this.createUlElement());
-    }
+export class TopMenuPage extends Page {
 
     createUlElement(): UlElement {
         const ulElement = new UlElement();
@@ -24,8 +17,12 @@ export class TopMenuElement extends FillContainer {
         return ulElement;
     }
 
-    setProperties() {
-        super.setProperties();
+    defaultContent():AbstractElement {
+        return this.createUlElement();
+    }
+
+    defaultTitle(): string {
+        return 'TopMenu';
     }
 
 }
