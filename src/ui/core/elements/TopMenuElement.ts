@@ -1,10 +1,10 @@
 import { BrElement } from "./BrElement";
-import { DivElement } from "./DivElement";
+import { FluidContainer } from "./FluidContainer";
 import { H3Element } from "./H3Element";
 import { LiElement } from "./LiElement";
 import { UlElement } from "./UlElement";
 
-export class TopMenuElement extends DivElement {
+export class TopMenuElement extends FluidContainer {
 
     addChildren() {
         this.addChild(new H3Element('Top Menu'));

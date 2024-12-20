@@ -6,8 +6,4 @@ export class DivElement extends AbstractElement {
         return document.createElement('div');
     }
 
-    defaultClasses(): string[] {
-        return ['container-fluid'];
-    }
-
 }
