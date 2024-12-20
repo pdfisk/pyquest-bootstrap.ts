@@ -57,6 +57,10 @@ export abstract class AbstractElement {
         this.setStyle('height', value + 'px');
     }
 
+    setHeightPct(value: number) {
+        this.setStyle('height', value + '%');
+    }
+
     setProperties() {
         for (let child of this.children)
             child.setProperties();

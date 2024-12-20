@@ -18,7 +18,7 @@ export class DivElement extends AbstractElement {
     setProperties() {
         super.setProperties();
         this.setBorder('10px solid gray');
-        this.setHeight(250);
+        this.setHeightPct(100);
         this.setBackgroundColor('peru');
     }
 
