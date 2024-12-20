@@ -1,5 +1,5 @@
 import { AbstractElement } from "./AbstractElement";
-import { DivElement } from "./DivElement";
+import { TopMenuElement } from "./TopMenuElement";
 
 export class RootElement extends AbstractElement {
     static instance: RootElement;
@@ -16,7 +16,7 @@ export class RootElement extends AbstractElement {
     }
 
     addChildren() {
-        this.addChild(new DivElement());
+        this.addChild(new TopMenuElement());
     }
 
     createElement(): HTMLElement | null {
