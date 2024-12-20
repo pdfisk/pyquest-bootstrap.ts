@@ -3,6 +3,13 @@ import { Page } from "./Page";
 
 export class Pages extends FillContainer {
     pageMap: Map<string, Page> = new Map;
+    static instance: Pages;
+
+    static getInstance(): Pages {
+        if (this.instance === undefined)
+            this.instance = new Pages;
+        return this.instance;
+    }
 
     addPage(page: Page) {
         this.pageMap.set(page.tag, page);

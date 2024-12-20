@@ -17,7 +17,7 @@ export class BodyElement extends AbstractElement {
     }
 
     addChildren() {
-        const pages = new Pages();
+        const pages = Pages.getInstance();
         pages.addPage(new TopMenuPage());
         this.addChild(pages);
         pages.selectPage('topmenu');
