@@ -1,6 +1,6 @@
 export abstract class AbstractElement {
     children: AbstractElement[] = [];
-    element: HTMLElement|null;
+    element: HTMLElement | null;
 
     constructor() {
         this.element = this.createElement();
@@ -14,12 +14,23 @@ export abstract class AbstractElement {
     addChildren() {
     }
 
-    abstract createElement(): HTMLElement|null;
+    addClass(className: string) {
+        const classList: any = this.element?.classList;
+        if (classList !== null)
+            classList.add(className);
+    }
 
-    onLoad() {
-        this.setProperties();
+    addClasses() {
+        for (let className in this.defaultClasses())
+            this.addClass(className);
         for (let child of this.children)
-            child.onLoad();
+            child.addClasses();
+    }
+
+    abstract createElement(): HTMLElement | null;
+
+    defaultClasses(): string[] {
+        return [];
     }
 
     renderChild(child: AbstractElement) {
@@ -34,17 +45,21 @@ export abstract class AbstractElement {
         }
     }
 
-    setProperties() {
-        for (let child of this.children)
-            child.setProperties();
-    }
-
     setBackgroundColor(value: string) {
         this.setStyle('backgroundColor', value);
     }
 
+    setBorder(value: string) {
+        this.setStyle('border', value);
+    }
+
     setHeight(value: number) {
         this.setStyle('height', value + 'px');
+    }
+
+    setProperties() {
+        for (let child of this.children)
+            child.setProperties();
     }
 
     setWidth(value: number) {

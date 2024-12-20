@@ -11,9 +11,13 @@ export class DivElement extends AbstractElement {
         return document.createElement('div');
     }
 
+    defaultClasses():string[] {
+        return ['container-fluid'];
+    }
+
     setProperties() {
         super.setProperties();
-        this.setWidth(350);
+        this.setBorder('10px solid gray');
         this.setHeight(250);
         this.setBackgroundColor('peru');
     }
