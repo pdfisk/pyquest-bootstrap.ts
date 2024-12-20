@@ -1,5 +1,5 @@
 import { AbstractElement } from "./AbstractElement";
-import { DivElement } from "./DivElement";
+import { H3Element } from "./H3Element";
 
 export class RootElement extends AbstractElement {
     static instance: RootElement;
@@ -16,7 +16,7 @@ export class RootElement extends AbstractElement {
     }
 
     addChildren() {
-        this.addChild(new DivElement());
+        this.addChild(new H3Element('Yo DUDE!'));
     }
 
     createElement(): HTMLElement | null {

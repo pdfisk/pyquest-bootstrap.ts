@@ -66,6 +66,11 @@ export abstract class AbstractElement {
             child.setProperties();
     }
 
+    setText(text: string) {
+        if (this.element !== null)
+            this.element.textContent = text;
+    }
+
     setWidth(value: number) {
         this.setStyle('width', value + 'px');
     }

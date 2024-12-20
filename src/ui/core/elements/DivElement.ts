@@ -4,7 +4,6 @@ export class DivElement extends AbstractElement {
 
     constructor() {
         super();
-        console.log('creating div');
     }
 
     createElement(): HTMLElement | null {
@@ -13,12 +12,6 @@ export class DivElement extends AbstractElement {
 
     defaultClasses(): string[] {
         return ['container-fluid', 'flex-grow-1'];
-    }
-
-    setProperties() {
-        super.setProperties();
-        this.setBorder('10px solid gray');
-        // this.setHeightPct(100);
     }
 
 }
