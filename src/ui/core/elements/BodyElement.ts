@@ -1,6 +1,4 @@
 import { AbstractElement } from "./AbstractElement";
-import { Pages } from "./Pages";
-import { TopMenuPage } from "./TopMenuPage";
 
 export class BodyElement extends AbstractElement {
     static instance: BodyElement;
@@ -14,13 +12,6 @@ export class BodyElement extends AbstractElement {
     private constructor() {
         super();
         window.onload = () => { this.onLoad(); }
-    }
-
-    addChildren() {
-        const pages = Pages.getInstance();
-        pages.addPage(new TopMenuPage());
-        this.addChild(pages);
-        pages.selectPage('topmenu');
     }
 
     createElement(): HTMLElement | null {

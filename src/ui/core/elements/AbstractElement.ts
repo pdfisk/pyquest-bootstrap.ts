@@ -18,7 +18,7 @@ export abstract class AbstractElement {
 
     addClass(className: string) {
         const classList: any = this.element?.classList;
-        if (classList !== null)
+        if (classList !== null && !classList.contains(className))
             classList.add(className);
     }
 
@@ -36,10 +36,17 @@ export abstract class AbstractElement {
     }
 
     hide() {
-        this.setVisibility('none');
+        this.removeClass('d-block');
+        this.addClass('d-none');
     }
 
     initialize() {
+    }
+
+    removeClass(className: string) {
+        const classList: any = this.element?.classList;
+        if (classList !== null && classList.contains(className))
+            classList.remove(className);
     }
 
     renderChild(child: AbstractElement) {
@@ -95,7 +102,8 @@ export abstract class AbstractElement {
     }
 
     show() {
-        this.setVisibility('visible');
+        this.removeClass('d-none');
+        this.addClass('d-block');
     }
 
 }
