@@ -1,7 +1,7 @@
 import { BodyElement } from "../core/elements/BodyElement";
 
 export class Viewport {
-    rootElement: BodyElement;
+    bodyElement: BodyElement;
     static instance: Viewport;
 
     static getInstance() {
@@ -11,7 +11,7 @@ export class Viewport {
     }
 
     private constructor() {
-        this.rootElement = BodyElement.getInstance();
+        this.bodyElement = BodyElement.getInstance();
         (window as any).X = this;
     }
 
