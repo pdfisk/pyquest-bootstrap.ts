@@ -17,7 +17,7 @@ export class TopMenuPage extends Page {
         return ulElement;
     }
 
-    defaultContent():AbstractElement {
+    defaultContent(): AbstractElement {
         return this.createUlElement();
     }
 

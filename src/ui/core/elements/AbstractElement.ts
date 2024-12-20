@@ -4,6 +4,7 @@ export abstract class AbstractElement {
 
     constructor() {
         this.element = this.createElement();
+        this.initialize();
         this.addChildren();
         this.addClasses();
     }
@@ -32,6 +33,9 @@ export abstract class AbstractElement {
 
     defaultClasses(): string[] {
         return [];
+    }
+
+    initialize() {
     }
 
     renderChild(child: AbstractElement) {

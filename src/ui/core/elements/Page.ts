@@ -9,7 +9,7 @@ export class Page extends FillContainer {
     addChildren() {
         this.addChild(new H3Element(this.defaultTitle()));
         this.addChild(new BrElement());
-        this.addChild(this.createUlElement());
+        this.addChild(this.defaultContent());
     }
 
     defaultTitle(): string {

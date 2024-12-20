@@ -1,7 +1,7 @@
-import { RootElement } from "../core/elements/RootElement";
+import { BodyElement } from "../core/elements/BodyElement";
 
 export class Viewport {
-    rootElement: RootElement;
+    rootElement: BodyElement;
     static instance: Viewport;
 
     static getInstance() {
@@ -11,7 +11,7 @@ export class Viewport {
     }
 
     private constructor() {
-        this.rootElement = RootElement.getInstance();
+        this.rootElement = BodyElement.getInstance();
         (window as any).X = this;
     }
 

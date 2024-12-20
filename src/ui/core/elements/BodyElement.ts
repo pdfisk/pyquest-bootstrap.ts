@@ -1,12 +1,13 @@
 import { AbstractElement } from "./AbstractElement";
+import { Pages } from "./Pages";
 import { TopMenuPage } from "./TopMenuPage";
 
-export class RootElement extends AbstractElement {
-    static instance: RootElement;
+export class BodyElement extends AbstractElement {
+    static instance: BodyElement;
 
-    static getInstance(): RootElement {
+    static getInstance(): BodyElement {
         if (this.instance === undefined)
-            this.instance = new RootElement;
+            this.instance = new BodyElement;
         return this.instance;
     }
 
