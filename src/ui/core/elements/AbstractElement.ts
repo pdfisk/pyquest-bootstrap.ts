@@ -21,7 +21,7 @@ export abstract class AbstractElement {
     }
 
     addClasses() {
-        for (let className in this.defaultClasses())
+        for (let className of this.defaultClasses())
             this.addClass(className);
         for (let child of this.children)
             child.addClasses();

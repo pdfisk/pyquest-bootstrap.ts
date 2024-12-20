@@ -23,15 +23,19 @@ export class RootElement extends AbstractElement {
         return null;
     }
 
+    defaultClasses(): string[] {
+        return ['container-fluid', 'd-flex', 'flex-container'];
+    }
+
     onLoad() {
         this.element = document.body;
+        this.addClasses();
         this.renderChildren();
         this.setProperties();
     }
 
     setProperties() {
         super.setProperties();
-        this.setBackgroundColor('red');
     }
 
 }

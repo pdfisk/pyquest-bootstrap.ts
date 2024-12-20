@@ -11,15 +11,14 @@ export class DivElement extends AbstractElement {
         return document.createElement('div');
     }
 
-    defaultClasses():string[] {
-        return ['container-fluid'];
+    defaultClasses(): string[] {
+        return ['container-fluid', 'flex-grow-1'];
     }
 
     setProperties() {
         super.setProperties();
         this.setBorder('10px solid gray');
-        this.setHeightPct(100);
-        this.setBackgroundColor('peru');
+        // this.setHeightPct(100);
     }
 
 }
