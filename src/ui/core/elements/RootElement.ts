@@ -26,6 +26,7 @@ export class RootElement extends AbstractElement {
     onLoad() {
         this.element = document.body;
         this.renderChildren();
+        this.setProperties();
     }
 
     setProperties() {
