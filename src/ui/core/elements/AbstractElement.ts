@@ -35,6 +35,10 @@ export abstract class AbstractElement {
         return [];
     }
 
+    hide() {
+        this.setVisibility('none');
+    }
+
     initialize() {
     }
 
@@ -76,6 +80,10 @@ export abstract class AbstractElement {
             this.element.textContent = text;
     }
 
+    setVisibility(value: string) {
+        this.setStyle('visibility', value);
+    }
+
     setWidth(value: number) {
         this.setStyle('width', value + 'px');
     }
@@ -84,6 +92,10 @@ export abstract class AbstractElement {
         const style: any = this.element?.style;
         if (style !== null)
             style[name] = value;
+    }
+
+    show() {
+        this.setVisibility('visible');
     }
 
 }

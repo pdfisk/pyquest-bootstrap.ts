@@ -5,6 +5,12 @@ import { FillContainer } from "./FlillContainer";
 import { H3Element } from "./H3Element";
 
 export class Page extends FillContainer {
+    tag: string;
+
+    constructor() {
+        super();
+        this.tag = this.createTag();
+    }
 
     addChildren() {
         this.addChild(new H3Element(this.defaultTitle()));
@@ -12,11 +18,15 @@ export class Page extends FillContainer {
         this.addChild(this.defaultContent());
     }
 
+    createTag(): string {
+        return this.defaultTitle().replace(' ', '_').toLowerCase();
+    }
+
     defaultTitle(): string {
         return 'a Page'
     }
 
-    defaultContent():AbstractElement {
+    defaultContent(): AbstractElement {
         return new DivElement();
     }
 

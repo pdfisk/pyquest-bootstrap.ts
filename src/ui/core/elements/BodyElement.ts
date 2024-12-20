@@ -17,7 +17,10 @@ export class BodyElement extends AbstractElement {
     }
 
     addChildren() {
-        this.addChild(new TopMenuPage());
+        const pages = new Pages();
+        pages.addPage(new TopMenuPage());
+        this.addChild(pages);
+        pages.selectPage('topmenu');
     }
 
     createElement(): HTMLElement | null {
