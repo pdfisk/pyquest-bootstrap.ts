@@ -5,6 +5,7 @@ export abstract class AbstractElement {
     constructor() {
         this.element = this.createElement();
         this.addChildren();
+        this.addClasses();
     }
 
     addChild(child: AbstractElement) {

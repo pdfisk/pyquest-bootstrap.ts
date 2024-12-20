@@ -1,6 +1,6 @@
 import { RootElement } from "../core/elements/RootElement";
 
-export class Viewport  {
+export class Viewport {
     rootElement: RootElement;
     static instance: Viewport;
 
@@ -11,7 +11,7 @@ export class Viewport  {
     }
 
     private constructor() {
-         this.rootElement = RootElement.getInstance();
+        this.rootElement = RootElement.getInstance();
         console.log('VIEWPORT');
         (window as any).X = this;
     }

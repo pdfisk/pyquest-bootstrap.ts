@@ -1,7 +1,5 @@
 import { AbstractElement } from "./AbstractElement";
-import { BrElement } from "./BrElement";
-import { H3Element } from "./H3Element";
-import { UlElement } from "./UlElement";
+import { DivElement } from "./DivElement";
 
 export class RootElement extends AbstractElement {
     static instance: RootElement;
@@ -18,17 +16,11 @@ export class RootElement extends AbstractElement {
     }
 
     addChildren() {
-        this.addChild(new H3Element('Yo DUDE!'));
-        this.addChild(new BrElement());
-        this.addChild(new UlElement());
+        this.addChild(new DivElement());
     }
 
     createElement(): HTMLElement | null {
         return null;
-    }
-
-    defaultClasses(): string[] {
-        return ['container-fluid', 'd-flex', 'flex-container'];
     }
 
     onLoad() {
