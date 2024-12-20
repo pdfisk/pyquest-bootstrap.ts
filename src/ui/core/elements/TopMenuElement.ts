@@ -1,10 +1,10 @@
 import { BrElement } from "./BrElement";
-import { FluidContainer } from "./FluidContainer";
+import { FillContainer } from "./FlillContainer";
 import { H3Element } from "./H3Element";
 import { LiElement } from "./LiElement";
 import { UlElement } from "./UlElement";
 
-export class TopMenuElement extends FluidContainer {
+export class TopMenuElement extends FillContainer {
 
     addChildren() {
         this.addChild(new H3Element('Top Menu'));
@@ -22,6 +22,10 @@ export class TopMenuElement extends FluidContainer {
         ulElement.addChild(new LiElement('Login'));
         ulElement.addChild(new LiElement('Help'));
         return ulElement;
+    }
+
+    setProperties() {
+        super.setProperties();
     }
 
 }
