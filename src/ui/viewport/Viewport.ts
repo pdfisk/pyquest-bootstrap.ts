@@ -1,8 +1,13 @@
 import { BodyElement } from "../core/elements/BodyElement";
-import { EditorPage } from "../core/elements/EditorPage";
 import { Page } from "../core/elements/Page";
 import { Pages } from "../core/elements/Pages";
+import { BoardPage } from "../pages/BoardPage";
+import { EditorPage } from "../pages/EditorPage";
+import { HelpPage } from "../pages/HelpPage";
+import { LoginPage } from "../pages/LoginPage";
+import { StatusPage } from "../pages/StatusPage";
 import { TopMenuPage } from "../pages/TopMenuPage";
+import { TranscriptPage } from "../pages/TranscriptPage";
 
 export class Viewport {
     bodyElement: BodyElement;
@@ -20,7 +25,6 @@ export class Viewport {
         this.pages = Pages.getInstance();
         this.bodyElement.addChild(this.pages);
         this.addPages();
-        this.pages.selectPage('editor');
         (window as any).X = this;
     }
 
@@ -29,8 +33,17 @@ export class Viewport {
     }
 
     addPages() {
+        this.addPage(new BoardPage);
         this.addPage(new EditorPage);
+        this.addPage(new HelpPage);
+        this.addPage(new LoginPage);
+        this.addPage(new StatusPage);
         this.addPage(new TopMenuPage);
+        this.addPage(new TranscriptPage);
+    }
+
+    selectPage(tag: string) {
+        this.pages.selectPage(tag);
     }
 
 }
