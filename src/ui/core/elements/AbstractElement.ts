@@ -1,6 +1,7 @@
 export abstract class AbstractElement {
     children: AbstractElement[] = [];
     element: HTMLElement | null;
+    static idCounter: number = 0;
 
     constructor() {
         this.element = this.createElement();
@@ -29,10 +30,22 @@ export abstract class AbstractElement {
             child.addClasses();
     }
 
-    abstract createElement(): HTMLElement | null;
+    createElement(): HTMLElement | null {
+        const elem = document.createElement(this.defaultTagName());
+        elem.setAttribute('id', this.generateId());
+        return elem;
+    }
 
     defaultClasses(): string[] {
         return [];
+    }
+
+    defaultTagName(): string {
+        return 'div';
+    }
+
+    generateId(): string {
+        return `elem-${AbstractElement.idCounter++}`;
     }
 
     hide() {

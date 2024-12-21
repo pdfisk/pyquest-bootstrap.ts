@@ -6,8 +6,8 @@ export class BrElement extends AbstractElement {
         super();
     }
 
-    createElement(): HTMLElement | null {
-        return document.createElement('br');
+    defaultTagName(): string {
+        return 'br';
     }
 
 }

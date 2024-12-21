@@ -7,8 +7,8 @@ export class H3Element extends AbstractElement {
         this.setText(text);
     }
 
-    createElement(): HTMLElement | null {
-        return document.createElement('h3');
+    defaultTagName(): string {
+        return 'h3';
     }
 
 }

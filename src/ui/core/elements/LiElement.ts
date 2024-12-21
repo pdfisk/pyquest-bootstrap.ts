@@ -7,12 +7,12 @@ export class LiElement extends AbstractElement {
         this.setText(text);
     }
 
-    createElement(): HTMLElement | null {
-        return document.createElement('li');
-    }
-
     defaultClasses(): string[] {
         return ['list-group-item'];
+    }
+
+    defaultTagName(): string {
+        return 'li';
     }
 
 }
