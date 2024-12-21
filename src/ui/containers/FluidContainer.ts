@@ -1,4 +1,4 @@
-import { DivElement } from "./DivElement";
+import { DivElement } from "../core/elements/DivElement";
 
 export class FluidContainer extends DivElement {
 

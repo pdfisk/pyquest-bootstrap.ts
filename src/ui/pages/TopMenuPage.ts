@@ -1,6 +1,6 @@
 import { AbstractElement } from "../core/elements/AbstractElement";
 import { LiElement } from "../core/elements/LiElement";
-import { Page } from "../core/elements/Page";
+import { Page } from "./core/Page";
 import { UlElement } from "../core/elements/UlElement";
 
 export class TopMenuPage extends Page {

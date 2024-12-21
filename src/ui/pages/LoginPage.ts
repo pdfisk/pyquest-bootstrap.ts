@@ -1,4 +1,4 @@
-import { Page } from "../core/elements/Page";
+import { Page } from "./core/Page";
 
 export class LoginPage extends Page {
 

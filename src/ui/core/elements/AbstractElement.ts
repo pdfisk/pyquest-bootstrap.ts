@@ -1,6 +1,7 @@
 export abstract class AbstractElement {
     children: AbstractElement[] = [];
     element: HTMLElement | null;
+    id: string = '';
     static idCounter: number = 0;
 
     constructor() {
@@ -30,6 +31,12 @@ export abstract class AbstractElement {
             child.addClasses();
     }
 
+    addClickHandler() {
+        const args = this.onClickArgs();
+        const argStr = JSON.stringify(args);
+        this.setAttribute('onclick', `pq_api.handleEvent(${argStr})`);
+    }
+
     createElement(): HTMLElement | null {
         const elem = document.createElement(this.defaultTagName());
         elem.setAttribute('id', this.generateId());
@@ -44,8 +51,14 @@ export abstract class AbstractElement {
         return 'div';
     }
 
+    getAttribute(name: string): string | null | undefined {
+        if (this.element === undefined)
+            return null;
+        return this.element?.getAttribute(name);
+    }
+
     generateId(): string {
-        return `elem-${AbstractElement.idCounter++}`;
+        return this.id = `elem-${AbstractElement.idCounter++}`;
     }
 
     hide() {
@@ -54,6 +67,13 @@ export abstract class AbstractElement {
     }
 
     initialize() {
+    }
+
+    onClickArgs(): any {
+        return {
+            event: 'click',
+            id: this.id
+        }
     }
 
     removeClass(className: string) {
@@ -72,6 +92,12 @@ export abstract class AbstractElement {
             this.renderChild(child);
             child.renderChildren();
         }
+    }
+
+    setAttribute(name: string, value: string) {
+        if (this.element === undefined)
+            return;
+        this.element?.setAttribute(name, value);
     }
 
     setBackgroundColor(value: string) {

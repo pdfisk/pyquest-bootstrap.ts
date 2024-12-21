@@ -14,4 +14,8 @@ export class PyQuestApi {
         Viewport.getInstance();
     }
 
+    handleEvent(argStr: string) {
+        console.log('handleEvent', argStr);
+    }
+
 }

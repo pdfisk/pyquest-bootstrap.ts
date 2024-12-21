@@ -1,6 +1,6 @@
 import { BodyElement } from "../core/elements/BodyElement";
-import { Page } from "../core/elements/Page";
-import { Pages } from "../core/elements/Pages";
+import { Page } from "../pages/core/Page";
+import { Pages } from "../pages/core/Pages";
 import { BoardPage } from "../pages/BoardPage";
 import { EditorPage } from "../pages/EditorPage";
 import { HelpPage } from "../pages/HelpPage";
