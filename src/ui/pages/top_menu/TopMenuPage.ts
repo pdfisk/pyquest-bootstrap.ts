@@ -4,7 +4,6 @@ import { AbstractElement } from "../../core/elements/AbstractElement";
 import { List } from "../../widgets/List";
 import { ListItem } from "../../widgets/ListItem";
 import { Page } from "../Page";
-import { IPerformAction } from "../../../interfaces/IPerformAction";
 
 export class TopMenuPage extends Page {
 
@@ -24,17 +23,10 @@ export class TopMenuPage extends Page {
         const listItem = new ListItem(title);
         const args = listItem.onClickArgs();
         args.action = 'select_page';
+        args.page_id = this.id;
         const fn = this.createSelectPageFn(args);
         EventManager.mapEvent(listItem.id, 'click', fn);
         return listItem;
-    }
-
-    defaultContent(): AbstractElement {
-        return this.createList();
-    }
-
-    defaultTitle(): string {
-        return 'TopMenu';
     }
 
     createSelectPageFn(args: any): Function {
@@ -43,6 +35,14 @@ export class TopMenuPage extends Page {
             if (!element || !('performAction' in element)) return;
             element.performAction(args.action, args);
         };
+    }
+
+    defaultContent(): AbstractElement {
+        return this.createList();
+    }
+
+    defaultTitle(): string {
+        return 'TopMenu';
     }
 
 }

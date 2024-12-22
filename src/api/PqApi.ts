@@ -15,7 +15,9 @@ export class PqApi {
         Viewport.getInstance();
     }
 
-    handleEvent(args: any) {
+    handleEvent(json64: string) {
+        const jsonStr = atob(json64);
+        const args = JSON.parse(jsonStr);
         const elementId = args.id;
         const eventName = args.event;
         EventManager.handleEvent(elementId, eventName, args);

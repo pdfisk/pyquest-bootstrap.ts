@@ -1,4 +1,5 @@
 import { IPerformAction } from "../../../interfaces/IPerformAction";
+import { ElementRegistry } from "../../../util/ElementRegistry";
 
 export abstract class AbstractElement implements IPerformAction {
     children: AbstractElement[] = [];
@@ -11,6 +12,7 @@ export abstract class AbstractElement implements IPerformAction {
         this.initialize();
         this.addChildren();
         this.addClasses();
+        ElementRegistry.register(this);
     }
 
     addChild(child: AbstractElement) {
@@ -35,8 +37,8 @@ export abstract class AbstractElement implements IPerformAction {
 
     addClickHandler() {
         const args = this.onClickArgs();
-        const argStr = JSON.stringify(args);
-        this.setAttribute('onclick', `pq_api.handleEvent(${argStr})`);
+        const jsonStr64 = btoa(JSON.stringify(args));
+        this.setAttribute('onclick', `pq_api.handleEvent('${jsonStr64}')`);
     }
 
     createElement(): HTMLElement | null {
