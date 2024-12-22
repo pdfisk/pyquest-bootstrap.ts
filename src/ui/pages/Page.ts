@@ -1,12 +1,12 @@
 import { StringUtil } from "../../util/StringUtil";
-import { FillContainer } from "../containers/FlillContainer";
 import { AbstractElement } from "../core/elements/AbstractElement";
 import { BrElement } from "../core/elements/BrElement";
 import { DivElement } from "../core/elements/DivElement";
 import { H3Element } from "../core/elements/H3Element";
+import { Card } from "../widgets/Card";
 import { Pages } from "./Pages";
 
-export class Page extends FillContainer {
+export class Page extends Card {
     tag: string;
 
     constructor() {
@@ -18,6 +18,11 @@ export class Page extends FillContainer {
         this.addChild(new H3Element(this.defaultTitle()));
         this.addChild(new BrElement());
         this.addChild(this.defaultContent());
+    }
+
+    addClasses() {
+        super.addClasses();
+        this.addClass('card');
     }
 
     createTag(): string {
