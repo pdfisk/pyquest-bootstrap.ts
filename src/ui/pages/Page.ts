@@ -4,10 +4,13 @@ import { BrElement } from "../core/elements/BrElement";
 import { DivElement } from "../core/elements/DivElement";
 import { H3Element } from "../core/elements/H3Element";
 import { Card } from "../widgets/card/Card";
+import { CardBody } from "../widgets/card/CardBody";
 import { CardHeader } from "../widgets/card/CardHeader";
 import { Pages } from "./Pages";
 
 export class Page extends Card {
+    body: CardBody | undefined;
+    header: CardHeader | undefined;
     tag: string;
 
     constructor() {
@@ -16,9 +19,11 @@ export class Page extends Card {
     }
 
     addChildren() {
-        this.addChild(new CardHeader(this.defaultTitle()));
-        this.addChild(new BrElement());
-        this.addChild(this.defaultContent());
+        this.header = new CardHeader(this.defaultTitle());
+        this.body = new CardBody;
+        this.addChild(this.header);
+        this.addChild(this.body);
+        this.body.addChild(this.defaultContent());
     }
 
     addClasses() {
