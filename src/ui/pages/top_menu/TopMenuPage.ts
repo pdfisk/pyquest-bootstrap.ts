@@ -1,7 +1,7 @@
-import { AbstractElement } from "../core/elements/AbstractElement";
-import { LiElement } from "../core/elements/LiElement";
-import { Page } from "./core/Page";
-import { UlElement } from "../core/elements/UlElement";
+import { AbstractElement } from "../../core/elements/AbstractElement";
+import { LiElement } from "../../core/elements/LiElement";
+import { UlElement } from "../../core/elements/UlElement";
+import { Page } from "../Page";
 
 export class TopMenuPage extends Page {
 

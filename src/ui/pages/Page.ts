@@ -1,8 +1,8 @@
-import { AbstractElement } from "../../core/elements/AbstractElement";
-import { BrElement } from "../../core/elements/BrElement";
-import { DivElement } from "../../core/elements/DivElement";
-import { FillContainer } from "../../containers/FlillContainer";
-import { H3Element } from "../../core/elements/H3Element";
+import { FillContainer } from "../containers/FlillContainer";
+import { AbstractElement } from "../core/elements/AbstractElement";
+import { BrElement } from "../core/elements/BrElement";
+import { DivElement } from "../core/elements/DivElement";
+import { H3Element } from "../core/elements/H3Element";
 
 export class Page extends FillContainer {
     tag: string;

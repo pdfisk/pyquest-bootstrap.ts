@@ -1,13 +1,13 @@
 import { BodyElement } from "../core/elements/BodyElement";
-import { Page } from "../pages/core/Page";
-import { Pages } from "../pages/core/Pages";
-import { BoardPage } from "../pages/BoardPage";
-import { EditorPage } from "../pages/EditorPage";
-import { HelpPage } from "../pages/HelpPage";
-import { LoginPage } from "../pages/LoginPage";
-import { StatusPage } from "../pages/StatusPage";
-import { TopMenuPage } from "../pages/TopMenuPage";
-import { TranscriptPage } from "../pages/TranscriptPage";
+import { Page } from "../pages/Page";
+import { Pages } from "../pages/Pages";
+import { BoardPage } from "../pages/board/BoardPage";
+import { EditorPage } from "../pages/editor/EditorPage";
+import { HelpPage } from "../pages/help/HelpPage";
+import { LoginPage } from "../pages/login/LoginPage";
+import { StatusPage } from "../pages/status/StatusPage";
+import { TopMenuPage } from "../pages/top_menu/TopMenuPage";
+import { TranscriptPage } from "../pages/transcript/TranscriptPage";
 
 export class Viewport {
     bodyElement: BodyElement;
@@ -25,6 +25,7 @@ export class Viewport {
         this.pages = Pages.getInstance();
         this.bodyElement.addChild(this.pages);
         this.addPages();
+        this.selectPage('topmenu');
         (window as any).X = this;
     }
 

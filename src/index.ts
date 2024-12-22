@@ -1,9 +1,9 @@
-import { PyQuestApi } from './api/PyQuestApi';
+import { PqApi } from './api/PqApi';
 
 export * from './api/index';
 
 export function start() {
-    (window as any).pq_api = PyQuestApi.getInstance();
+    (window as any).pq_api = PqApi.getInstance();
 }
 
 start();

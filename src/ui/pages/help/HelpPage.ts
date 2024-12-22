@@ -1,4 +1,4 @@
-import { Page } from "./core/Page";
+import { Page } from "../Page";
 
 export class HelpPage extends Page {
 

@@ -1,3 +1,5 @@
+import { EventProfile } from "../../../util/EventProfile";
+
 export abstract class AbstractElement {
     children: AbstractElement[] = [];
     element: HTMLElement | null;

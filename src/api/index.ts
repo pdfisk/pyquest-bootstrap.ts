@@ -1,1 +1,1 @@
-export * from './PyQuestApi';
+export * from './PqApi';

@@ -1,12 +1,12 @@
 import { Viewport } from '../ui/viewport/Viewport';
 
-export class PyQuestApi {
+export class PqApi {
 
-    static instance: PyQuestApi;
+    static instance: PqApi;
 
-    static getInstance(): PyQuestApi {
+    static getInstance(): PqApi {
         if (this.instance === undefined)
-            this.instance = new PyQuestApi;
+            this.instance = new PqApi;
         return this.instance;
     }
 
