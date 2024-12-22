@@ -1,8 +1,10 @@
+import { StringUtil } from "../../util/StringUtil";
 import { FillContainer } from "../containers/FlillContainer";
 import { AbstractElement } from "../core/elements/AbstractElement";
 import { BrElement } from "../core/elements/BrElement";
 import { DivElement } from "../core/elements/DivElement";
 import { H3Element } from "../core/elements/H3Element";
+import { Pages } from "./Pages";
 
 export class Page extends FillContainer {
     tag: string;
@@ -19,7 +21,7 @@ export class Page extends FillContainer {
     }
 
     createTag(): string {
-        return this.defaultTitle().replace(' ', '_').toLowerCase();
+        return StringUtil.asTag(this.defaultTitle());
     }
 
     defaultTitle(): string {
@@ -28,6 +30,10 @@ export class Page extends FillContainer {
 
     defaultContent(): AbstractElement {
         return new DivElement();
+    }
+
+    selectPage(tag: string) {
+        Pages.selectPage(tag);
     }
 
 }

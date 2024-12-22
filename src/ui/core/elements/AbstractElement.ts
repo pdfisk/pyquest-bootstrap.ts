@@ -1,9 +1,11 @@
 import { EventProfile } from "../../../util/EventProfile";
+import { StringUtil } from "../../../util/StringUtil";
 
 export abstract class AbstractElement {
     children: AbstractElement[] = [];
     element: HTMLElement | null;
     id: string = '';
+    tag: string = '';
     static idCounter: number = 0;
 
     constructor() {
@@ -59,6 +61,12 @@ export abstract class AbstractElement {
         return this.element?.getAttribute(name);
     }
 
+    getText(): string {
+        if (this.element !== null)
+            return this.element.textContent ? this.element.textContent : '';
+        return '';
+    }
+
     generateId(): string {
         return this.id = `elem-${AbstractElement.idCounter++}`;
     }
@@ -72,8 +80,12 @@ export abstract class AbstractElement {
     }
 
     onClickArgs(): any {
+        const args = { event: 'click' };
+        return Object.assign(args, this.onEventArgs());
+    }
+
+    onEventArgs(): any {
         return {
-            event: 'click',
             id: this.id
         }
     }
@@ -124,6 +136,7 @@ export abstract class AbstractElement {
     }
 
     setText(text: string) {
+        this.tag = StringUtil.asTag(text);
         if (this.element !== null)
             this.element.textContent = text;
     }

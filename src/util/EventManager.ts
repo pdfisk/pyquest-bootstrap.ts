@@ -10,6 +10,14 @@ export class EventManager {
         return this.instance;
     }
 
+    static handleEvent(elementId: string, eventName: string, args: any) {
+        this.getInstance().handleEvent(elementId, eventName, args);
+    }
+
+    static mapEvent(elementId: string, eventName: string, fn: Function) {
+        this.getInstance().mapEvent(elementId, eventName, fn);
+    }
+
     private constructor() {
     }
 
@@ -19,18 +27,18 @@ export class EventManager {
         return this.profileMap.get(elementId);
     }
 
-    handleEvent(elementId: string,eventName: string, args: any) {
+    handleEvent(elementId: string, eventName: string, args: any) {
         if (!this.profileMap.has(elementId)) return;
         const eventProfile = this.profileMap.get(elementId);
         eventProfile?.handleEvent(eventName, args);
     }
 
-    mapEvent(elementId: string,eventName: string, fn: Function) {
+    mapEvent(elementId: string, eventName: string, fn: Function) {
         const eventProfile = this.getOrCreateProfile(elementId);
         eventProfile?.mapEvent(eventName, fn);
     }
 
-    unMapEvent(elementId: string,eventName: string) {
+    unMapEvent(elementId: string, eventName: string) {
         const eventProfile = this.getOrCreateProfile(elementId);
         eventProfile?.unMapEvent(eventName);
     }

@@ -27,7 +27,6 @@ export class Viewport {
         this.bodyElement.addChild(this.pages);
         this.addPages();
         this.selectPage('topmenu');
-        (window as any).X = this;
     }
 
     addPage(page: Page) {

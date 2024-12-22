@@ -1,4 +1,5 @@
 import { Viewport } from '../ui/viewport/Viewport';
+import { EventManager } from '../util/EventManager';
 
 export class PqApi {
 
@@ -14,8 +15,11 @@ export class PqApi {
         Viewport.getInstance();
     }
 
-    handleEvent(argStr: string) {
-        console.log('handleEvent', argStr);
+    handleEvent(args: any) {
+        console.log('handleEvent', args);
+        const elementId = args.id;
+        const eventName = args.event;
+        EventManager.handleEvent(elementId, eventName, args);
     }
 
 }

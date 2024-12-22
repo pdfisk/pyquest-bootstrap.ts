@@ -7,7 +7,7 @@ export class EventProfile {
     }
 
     handleEvent(eventName: string, args: any) {
-        console.log('handleEvent', eventName, args);
+        console.log('EventProfile handleEvent', eventName, args);
         if (!this.eventMap.has(eventName))
             return;
         const fn: Function | undefined = this.eventMap.get(eventName);
