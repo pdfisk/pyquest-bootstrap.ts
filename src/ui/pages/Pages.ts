@@ -11,6 +11,10 @@ export class Pages extends FillContainer {
         return this.instance;
     }
 
+    static selectPage(tag: string) {
+        this.getInstance().selectPage(tag);
+    }
+
     addPage(page: Page) {
         this.pageMap.set(page.tag, page);
         this.addChild(page);

@@ -5,6 +5,7 @@ import { BoardPage } from "../pages/board/BoardPage";
 import { EditorPage } from "../pages/editor/EditorPage";
 import { HelpPage } from "../pages/help/HelpPage";
 import { LoginPage } from "../pages/login/LoginPage";
+import { ProjectsPage } from "../pages/projects/ProjectsPage";
 import { StatusPage } from "../pages/status/StatusPage";
 import { TopMenuPage } from "../pages/top_menu/TopMenuPage";
 import { TranscriptPage } from "../pages/transcript/TranscriptPage";
@@ -38,6 +39,7 @@ export class Viewport {
         this.addPage(new EditorPage);
         this.addPage(new HelpPage);
         this.addPage(new LoginPage);
+        this.addPage(new ProjectsPage);
         this.addPage(new StatusPage);
         this.addPage(new TopMenuPage);
         this.addPage(new TranscriptPage);
