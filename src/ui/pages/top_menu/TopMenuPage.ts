@@ -45,4 +45,8 @@ export class TopMenuPage extends Page {
         return 'TopMenu';
     }
 
+    showTopMenuButton(): boolean {
+        return false;
+    }
+
 }

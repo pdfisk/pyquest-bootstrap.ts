@@ -18,6 +18,8 @@ export class Page extends Card {
 
     addChildren() {
         this.header = new CardHeader(this.defaultTitle());
+        if (this.showTopMenuButton())
+            this.header.addTopMenuButton();
         this.body = new CardBody;
         this.addChild(this.header);
         this.addChild(this.body);
@@ -54,6 +56,10 @@ export class Page extends Card {
 
     selectPage(tag: string) {
         Pages.selectPage(tag);
+    }
+
+    showTopMenuButton(): boolean {
+        return true;
     }
 
 }
