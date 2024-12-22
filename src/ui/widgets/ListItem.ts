@@ -38,7 +38,6 @@ export class ListItem extends LiElement {
         const page = ElementRegistry.find(page_id);
         if (page instanceof Page)
             (page as Page).selectPage(tag);
-        console.log('performActionSelectPage', args);
     }
 
 }
