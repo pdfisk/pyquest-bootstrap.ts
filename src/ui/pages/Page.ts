@@ -32,6 +32,17 @@ export class Page extends FillContainer {
         return new DivElement();
     }
 
+    performAction(actionName: string, args: any): void {
+        switch (actionName) {
+            case 'select_page':
+                this.selectPage(args.tag);
+                break;
+            default:
+                console.log('unknown action', actionName);
+                break;
+        }
+    }
+
     selectPage(tag: string) {
         Pages.selectPage(tag);
     }

@@ -1,8 +1,10 @@
+import { ElementRegistry } from "../../../util/ElementRegistry";
 import { EventManager } from "../../../util/EventManager";
 import { AbstractElement } from "../../core/elements/AbstractElement";
 import { List } from "../../widgets/List";
 import { ListItem } from "../../widgets/ListItem";
 import { Page } from "../Page";
+import { IPerformAction } from "../../../interfaces/IPerformAction";
 
 export class TopMenuPage extends Page {
 
@@ -21,7 +23,8 @@ export class TopMenuPage extends Page {
     createListItem(title: string): ListItem {
         const listItem = new ListItem(title);
         const args = listItem.onClickArgs();
-        const fn = (args: any) => { console.log('ABC', args) };
+        args.action = 'select_page';
+        const fn = this.createSelectPageFn(args);
         EventManager.mapEvent(listItem.id, 'click', fn);
         return listItem;
     }
@@ -32,6 +35,14 @@ export class TopMenuPage extends Page {
 
     defaultTitle(): string {
         return 'TopMenu';
+    }
+
+    createSelectPageFn(args: any): Function {
+        return () => {
+            const element = ElementRegistry.find(args.id);
+            if (!element || !('performAction' in element)) return;
+            element.performAction(args.action, args);
+        };
     }
 
 }

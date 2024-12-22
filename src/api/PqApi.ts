@@ -16,7 +16,6 @@ export class PqApi {
     }
 
     handleEvent(args: any) {
-        console.log('handleEvent', args);
         const elementId = args.id;
         const eventName = args.event;
         EventManager.handleEvent(elementId, eventName, args);

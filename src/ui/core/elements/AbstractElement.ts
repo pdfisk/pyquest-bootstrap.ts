@@ -1,11 +1,9 @@
-import { EventProfile } from "../../../util/EventProfile";
-import { StringUtil } from "../../../util/StringUtil";
+import { IPerformAction } from "../../../interfaces/IPerformAction";
 
-export abstract class AbstractElement {
+export abstract class AbstractElement implements IPerformAction {
     children: AbstractElement[] = [];
     element: HTMLElement | null;
     id: string = '';
-    tag: string = '';
     static idCounter: number = 0;
 
     constructor() {
@@ -90,6 +88,9 @@ export abstract class AbstractElement {
         }
     }
 
+    performAction(actionName: string, args: any): void {
+    }
+
     removeClass(className: string) {
         const classList: any = this.element?.classList;
         if (classList !== null && classList.contains(className))
@@ -136,7 +137,6 @@ export abstract class AbstractElement {
     }
 
     setText(text: string) {
-        this.tag = StringUtil.asTag(text);
         if (this.element !== null)
             this.element.textContent = text;
     }

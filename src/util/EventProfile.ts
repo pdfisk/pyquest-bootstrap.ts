@@ -10,6 +10,7 @@ export class EventProfile {
         console.log('EventProfile handleEvent', eventName, args);
         if (!this.eventMap.has(eventName))
             return;
+        (window as any).X = this;
         const fn: Function | undefined = this.eventMap.get(eventName);
         if (fn instanceof Function)
             fn.call(null, args);
