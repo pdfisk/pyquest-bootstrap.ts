@@ -1,8 +1,6 @@
 import { StringUtil } from "../../util/StringUtil";
 import { AbstractElement } from "../core/elements/AbstractElement";
-import { BrElement } from "../core/elements/BrElement";
 import { DivElement } from "../core/elements/DivElement";
-import { H3Element } from "../core/elements/H3Element";
 import { Card } from "../widgets/card/Card";
 import { CardBody } from "../widgets/card/CardBody";
 import { CardHeader } from "../widgets/card/CardHeader";
