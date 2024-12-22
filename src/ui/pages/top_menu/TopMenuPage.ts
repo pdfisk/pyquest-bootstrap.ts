@@ -1,8 +1,8 @@
 import { ElementRegistry } from "../../../util/ElementRegistry";
 import { EventManager } from "../../../util/EventManager";
 import { AbstractElement } from "../../core/elements/AbstractElement";
-import { List } from "../../widgets/List";
-import { ListItem } from "../../widgets/ListItem";
+import { List } from "../../widgets/list/List";
+import { ListItem } from "../../widgets/list/ListItem";
 import { Page } from "../Page";
 
 export class TopMenuPage extends Page {

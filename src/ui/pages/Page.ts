@@ -3,7 +3,8 @@ import { AbstractElement } from "../core/elements/AbstractElement";
 import { BrElement } from "../core/elements/BrElement";
 import { DivElement } from "../core/elements/DivElement";
 import { H3Element } from "../core/elements/H3Element";
-import { Card } from "../widgets/Card";
+import { Card } from "../widgets/card/Card";
+import { CardHeader } from "../widgets/card/CardHeader";
 import { Pages } from "./Pages";
 
 export class Page extends Card {
@@ -15,7 +16,7 @@ export class Page extends Card {
     }
 
     addChildren() {
-        this.addChild(new H3Element(this.defaultTitle()));
+        this.addChild(new CardHeader(this.defaultTitle()));
         this.addChild(new BrElement());
         this.addChild(this.defaultContent());
     }

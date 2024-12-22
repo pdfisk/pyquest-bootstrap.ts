@@ -1,7 +1,7 @@
-import { ElementRegistry } from "../../util/ElementRegistry";
-import { StringUtil } from "../../util/StringUtil";
-import { LiElement } from "../core/elements/LiElement";
-import { Page } from "../pages/Page";
+import { ElementRegistry } from "../../../util/ElementRegistry";
+import { StringUtil } from "../../../util/StringUtil";
+import { LiElement } from "../../core/elements/LiElement";
+import { Page } from "../../pages/Page";
 
 export class ListItem extends LiElement {
     tag: string;

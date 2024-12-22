@@ -1,4 +1,4 @@
-import { FillContainer } from "../containers/FlillContainer";
+import { FillContainer } from "../../containers/FlillContainer";
 
 export class Card extends FillContainer {
  
