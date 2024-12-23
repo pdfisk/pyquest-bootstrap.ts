@@ -8,7 +8,7 @@ export class H3Element extends AbstractElement {
     }
 
     defaultTagName(): string {
-        return 'h3';
+        return 'h4';
     }
 
 }

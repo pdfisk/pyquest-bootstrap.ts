@@ -15,6 +15,10 @@ export class Pages extends FillContainer {
         this.getInstance().selectPage(tag);
     }
 
+    static selectTopMenu() {
+        this.selectPage('topmenu');
+    }
+
     addPage(page: Page) {
         this.pageMap.set(page.tag, page);
         this.addChild(page);
