@@ -13,7 +13,6 @@ export class Panel extends FluidContainer {
         this.setRight(0);
         this.setBottom(63);
         this.setLeft(0);
-        this.setBorder('5px solid slategray');
     }
 
 }

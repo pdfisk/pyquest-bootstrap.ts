@@ -7,7 +7,6 @@ export class TranscriptPage extends Page {
 
     constructor() {
         super();
-        (window as any).X = this;
     }
 
     defaultContent(): AbstractElement {
