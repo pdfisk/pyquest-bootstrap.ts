@@ -24,4 +24,12 @@ export class TextPanel extends Panel {
         this.textArea.setBottom(0);
     }
 
+    prn(text: string) {
+        console.log('PRN', text);
+        const oldText = this.textArea?.getValue();
+        const newText = `${oldText}${text}\n`;
+        console.log('old', oldText, 'new', newText);
+        this.textArea?.setValue(newText);
+    }
+
 }

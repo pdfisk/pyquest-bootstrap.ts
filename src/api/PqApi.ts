@@ -1,3 +1,4 @@
+import { Version } from '../constants/Version';
 import { Viewport } from '../ui/viewport/Viewport';
 import { EventManager } from '../util/EventManager';
 
@@ -11,7 +12,15 @@ export class PqApi {
         return this.instance;
     }
 
-    constructor() {
+    static timestamp(): string {
+        return Version.timestamp;
+    }
+
+    static version(): string {
+        return Version.version;
+    }
+
+    private constructor() {
         Viewport.getInstance();
     }
 

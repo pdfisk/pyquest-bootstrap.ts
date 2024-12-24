@@ -1,6 +1,7 @@
 import { IPerformAction } from "../../../interfaces/IPerformAction";
 import { ElementRegistry } from "../../../util/ElementRegistry";
-import { StringUtil } from "../../../util/StringUtil";
+
+const $: any = (window as any).$;
 
 export abstract class AbstractElement implements IPerformAction {
     children: AbstractElement[] = [];
@@ -13,6 +14,7 @@ export abstract class AbstractElement implements IPerformAction {
         this.initialize();
         this.addChildren();
         this.addClasses();
+        this.addEventHandlers();
         this.setStyles();
         ElementRegistry.register(this);
     }
@@ -41,6 +43,14 @@ export abstract class AbstractElement implements IPerformAction {
         const args = this.onClickArgs();
         const jsonStr64 = btoa(JSON.stringify(args));
         this.setAttribute('onclick', `pq_api.handleEvent('${jsonStr64}')`);
+    }
+
+    addEventHandler(eventName: string, fn: Function) {
+        if (this.element)
+            (this.element as any)[eventName] = fn;
+    }
+
+    addEventHandlers() {
     }
 
     createElement(): HTMLElement | null {
@@ -73,12 +83,24 @@ export abstract class AbstractElement implements IPerformAction {
         return this.id = `elem-${AbstractElement.idCounter++}`;
     }
 
+    handlesOnReady(): boolean {
+        return false;
+    }
+
     hide() {
         this.removeClass('d-block');
         this.addClass('d-none');
     }
 
     initialize() {
+        if (this.handlesOnReady())
+            $(this.element).ready(() => { this.onReady(); });
+    }
+
+    isConnected(): boolean {
+        if (this.element)
+            return this.element.isConnected;
+        return false;
     }
 
     onClickArgs(): any {
@@ -90,6 +112,9 @@ export abstract class AbstractElement implements IPerformAction {
         return {
             id: this.id
         }
+    }
+
+    onReady() {
     }
 
     performAction(actionName: string, args: any): void {

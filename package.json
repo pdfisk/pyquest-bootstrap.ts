@@ -12,12 +12,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jquery": "^3.5.32",
     "@types/node": "^20.14.10",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
     "eslint": "^8.57.0",
     "jsdoc-to-markdown": "^9.0.0",
-    "typedoc": "^0.26.6",
     "typedoc-plugin-markdown": "^4.2.6",
     "typescript": "^5.5.3"
   }
