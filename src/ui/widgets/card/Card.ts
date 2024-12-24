@@ -7,4 +7,9 @@ export class Card extends FillContainer {
         this.addClass('card');
     }
 
+    setStyles() {
+        super.setStyles();
+        this.setPosition('relative');
+    }
+
 }

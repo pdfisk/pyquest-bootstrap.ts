@@ -1,5 +1,6 @@
 import { IPerformAction } from "../../../interfaces/IPerformAction";
 import { ElementRegistry } from "../../../util/ElementRegistry";
+import { StringUtil } from "../../../util/StringUtil";
 
 export abstract class AbstractElement implements IPerformAction {
     children: AbstractElement[] = [];
@@ -12,6 +13,7 @@ export abstract class AbstractElement implements IPerformAction {
         this.initialize();
         this.addChildren();
         this.addClasses();
+        this.setStyles();
         ElementRegistry.register(this);
     }
 
@@ -125,6 +127,15 @@ export abstract class AbstractElement implements IPerformAction {
         this.setStyle('border', value);
     }
 
+    setBottom(value: number) {
+        this.setStyle('bottom', value + '');
+    }
+
+    setFullSize() {
+        this.addClass('w-100');
+        this.addClass('h-100');
+    }
+
     setHeight(value: number) {
         this.setStyle('height', value + 'px');
     }
@@ -133,14 +144,33 @@ export abstract class AbstractElement implements IPerformAction {
         this.setStyle('height', value + '%');
     }
 
+    setLeft(value: number) {
+        this.setStyle('left', value + '');
+    }
+
+    setPosition(value: string) {
+        this.setStyle('position', value);
+    }
+
     setProperties() {
         for (let child of this.children)
             child.setProperties();
     }
 
+    setRight(value: number) {
+        this.setStyle('right', value + '');
+    }
+
+    setStyles() {
+    }
+
     setText(text: string) {
         if (this.element !== null)
             this.element.textContent = text;
+    }
+
+    setTop(value: number) {
+        this.setStyle('top', value + '');
     }
 
     setVisibility(value: string) {
