@@ -6,4 +6,14 @@ export class Panel extends FluidContainer {
         super.addClasses();
     }
 
+    setStyles() {
+        super.setStyles();
+        this.setPosition('absolute');
+        this.setTop(0);
+        this.setRight(0);
+        this.setBottom(63);
+        this.setLeft(0);
+        this.setBorder('5px solid slategray');
+    }
+
 }

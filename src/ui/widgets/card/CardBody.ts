@@ -1,6 +1,6 @@
-import { FillContainer } from "../../containers/FlillContainer";
+import { FluidContainer } from "../../containers/FluidContainer";
 
-export class CardBody extends FillContainer {
+export class CardBody extends FluidContainer {
 
     addClasses() {
         super.addClasses();
@@ -10,10 +10,11 @@ export class CardBody extends FillContainer {
     setStyles() {
         super.setStyles();
         this.setPosition('absolute');
-        this.setTop(0);
-        this.setRight(0);
-        this.setBottom(200);
+        this.setBorder('1px solid red');
+        this.setBottom(0);
+        this.setTop(65);
         this.setLeft(0);
+        this.setRight(0);
     }
 
 }
