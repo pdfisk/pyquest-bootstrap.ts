@@ -13,13 +13,20 @@ export class ProjectsPage extends Page {
         return 'Projects';
     }
 
+    handlerFn(): Function {
+        return (reply: any) => {
+            console.log('Projects Page handlerFn');
+            (window as any).X = reply;
+        };
+    }
+
     handlesOnReady(): boolean {
         return true;
     }
 
     onReady() {
         super.onReady();
-        ProjectsStore.getJson();
+        ProjectsStore.getJsonFn(this.handlerFn());
     }
 
 }

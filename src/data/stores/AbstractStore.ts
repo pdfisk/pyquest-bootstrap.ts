@@ -28,7 +28,6 @@ export abstract class AbstractStore {
     }
 
     handleResult(records: any[], fn: Function) {
-        console.log('handleResult', records);
         this.records = records;
         if (fn) fn(this.records);
     }
