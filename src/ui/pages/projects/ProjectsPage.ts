@@ -1,10 +1,10 @@
 import { ProjectsStore } from "../../../data/stores/ProjectsStore";
 import { AbstractElement } from "../../core";
 import { List } from "../../widgets/list/List";
+import { ListItem } from "../../widgets/list/ListItem";
 import { Page } from "../Page";
 
 export class ProjectsPage extends Page {
-    list:List|null = null;
     projectsStore: ProjectsStore;
 
     constructor() {
@@ -12,20 +12,43 @@ export class ProjectsPage extends Page {
         this.projectsStore = ProjectsStore.getInstance();
     }
 
+    addListItem(title: string) {
+        const list = this.getList();
+        list.addChild(this.createListItem(title));
+    }
+
+    createList(): List {
+        const list = new List();
+        list.addChild(this.createListItem('00_one'));
+        list.addChild(this.createListItem('00_two'));
+        return list;
+    }
+
+    createListItem(title: string): ListItem {
+        const listItem = new ListItem(title);
+        return listItem;
+    }
+
     defaultContent(): AbstractElement {
-        if (!this.list)
-            this.list = new List;
-        return this.list;
+        return this.createList();
     }
 
     defaultTitle(): string {
         return 'Projects';
     }
 
+    getList(): List {
+        return this.body?.children.at(0) as List;
+    }
+
     handlerFn(): Function {
-        return (reply: any) => {
-            console.log('Projects Page handlerFn');
-            (window as any).X = reply;
+        return (records: any) => {
+            console.log('HANDLE RECORDS', records);
+            (window as any).X = [this, records];
+            for (let record of records) {
+                const name = record.name;
+                this.addListItem(name);
+            }
         };
     }
 

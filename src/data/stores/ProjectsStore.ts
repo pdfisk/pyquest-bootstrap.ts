@@ -21,7 +21,6 @@ export class ProjectsStore extends AbstractStore {
     defaultFn(): Function {
         return (reply: any) => {
             console.log('AJAX REPLY');
-            (window as any).X = reply;
         };
     }
 
