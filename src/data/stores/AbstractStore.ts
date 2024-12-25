@@ -1,6 +1,8 @@
 export abstract class AbstractStore {
+    records: any[] = [];
 
     abstract defaultFn(): Function;
+
     abstract defaultUrl(): string;
 
     getJson() {
@@ -12,7 +14,24 @@ export abstract class AbstractStore {
     }
 
     getJsonUrlUrlFn(url: string, fn: Function) {
-        console.log('getJson', url);
+        const request = $.ajax({
+            type: 'GET',
+            url: url,
+            contentType: 'application/json'
+        });
+        request.done((res) => {
+            this.handleResult(res, fn);
+        });
+        request.fail((jqXHR) => {
+            console.error(jqXHR)
+        });
     }
+
+    handleResult(records: any[], fn: Function) {
+        console.log('handleResult', records);
+        this.records = records;
+        if (fn) fn(this.records);
+    }
+
 
 }

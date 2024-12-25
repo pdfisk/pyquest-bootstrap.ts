@@ -25,10 +25,8 @@ export class TextPanel extends Panel {
     }
 
     prn(text: string) {
-        console.log('PRN', text);
         const oldText = this.textArea?.getValue();
         const newText = `${oldText}${text}\n`;
-        console.log('old', oldText, 'new', newText);
         this.textArea?.setValue(newText);
     }
 

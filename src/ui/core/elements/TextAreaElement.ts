@@ -27,7 +27,6 @@ export class TextAreaElement extends AbstractElement {
     }
 
     onReady() {
-        console.log('onReady', this.deferredText);
         this.isReady = true;
         this.setValue(this.deferredText);
         this.deferredText = '';

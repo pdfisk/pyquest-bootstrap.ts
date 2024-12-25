@@ -1,3 +1,4 @@
+import { UrlConstants } from "../../constants/UrlConstants";
 import { AbstractStore } from "./AbstractStore";
 
 export class ProjectsStore extends AbstractStore {
@@ -13,12 +14,21 @@ export class ProjectsStore extends AbstractStore {
         this.getInstance().getJson();
     }
 
+    static getJsonFn(fn: Function) {
+        this.getInstance().getJsonFn(fn);
+    }
+
     defaultFn(): Function {
-        return () => { console.log(arguments) };
+        return (reply: any) => {
+            console.log('AJAX REPLY');
+            (window as any).X = reply;
+        };
     }
 
     defaultUrl(): string {
-        return 'http:9080/api/projects';
+        if (location.hostname === 'localhost')
+            return UrlConstants.localProjects;
+        else return UrlConstants.remoteProjects;
     }
 
 }

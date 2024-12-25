@@ -8,7 +8,6 @@ export class StatusPage extends Page {
 
     constructor() {
         super();
-        (window as any).X = this;
     }
 
     defaultContent(): AbstractElement {

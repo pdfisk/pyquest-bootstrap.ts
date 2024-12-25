@@ -12,6 +12,10 @@ export class PqApi {
         return this.instance;
     }
 
+    static handleEvent(json64: string) {
+        this.getInstance().handleEvent(json64);
+    }
+
     static timestamp(): string {
         return Version.timestamp;
     }
