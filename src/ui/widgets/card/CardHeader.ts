@@ -15,6 +15,7 @@ export class CardHeader extends FluidContainer {
         this.addClass('card-header');
         this.addClass('d-flex');
         this.addClass('flex-row');
+        this.addClass('overflow-hidden');
     }
 
     addTitle(title: string) {

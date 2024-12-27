@@ -5,6 +5,7 @@ export class CardBody extends FluidContainer {
     addClasses() {
         super.addClasses();
         this.addClass('card-body');
+        this.addClass('overflow-hidden');
     }
 
     setStyles() {

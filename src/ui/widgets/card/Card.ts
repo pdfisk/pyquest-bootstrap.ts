@@ -5,6 +5,7 @@ export class Card extends FillContainer {
     addClasses() {
         super.addClasses();
         this.addClass('card');
+        this.addClass('overflow-hidden');
     }
 
     setStyles() {
