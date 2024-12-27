@@ -73,6 +73,10 @@ export abstract class AbstractElement implements IPerformAction {
         return this.element?.getAttribute(name);
     }
 
+    getInnerHtml(): string | undefined {
+        return this.element?.innerHTML;
+    }
+
     getText(): string {
         if (this.element !== null)
             return this.element.textContent ? this.element.textContent : '';
@@ -118,6 +122,11 @@ export abstract class AbstractElement implements IPerformAction {
     }
 
     performAction(actionName: string, args: any): void {
+    }
+
+    removeAllChildren() {
+        this.children = [];
+        this.setInnerHtml('');
     }
 
     removeClass(className: string) {
@@ -167,6 +176,11 @@ export abstract class AbstractElement implements IPerformAction {
 
     setHeightPct(value: number) {
         this.setStyle('height', value + '%');
+    }
+
+    setInnerHtml(html: string) {
+        if (this.element)
+            (this.element as any).innerHTML = html;
     }
 
     setLeft(value: number) {

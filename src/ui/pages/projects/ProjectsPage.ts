@@ -1,27 +1,30 @@
 import { ProjectsStore } from "../../../data/stores/ProjectsStore";
+import { DataUtil } from "../../../util/DataUtil";
 import { AbstractElement } from "../../core";
 import { List } from "../../widgets/list/List";
 import { ListItem } from "../../widgets/list/ListItem";
 import { Page } from "../Page";
 
 export class ProjectsPage extends Page {
+    list: List;
     projectsStore: ProjectsStore;
 
     constructor() {
         super();
         this.projectsStore = ProjectsStore.getInstance();
+        (window as any).X = this;
     }
 
     addListItem(title: string) {
-        const list = this.getList();
-        list.addChild(this.createListItem(title));
+        this.list.addChild(this.createListItem(title));
+    }
+
+    clearList() {
+        this.list.removeAllChildren();
     }
 
     createList(): List {
-        const list = new List();
-        list.addChild(this.createListItem('00_one'));
-        list.addChild(this.createListItem('00_two'));
-        return list;
+        return this.list = new List();
     }
 
     createListItem(title: string): ListItem {
@@ -37,14 +40,11 @@ export class ProjectsPage extends Page {
         return 'Projects';
     }
 
-    getList(): List {
-        return this.body?.children.at(0) as List;
-    }
-
     handlerFn(): Function {
         return (records: any) => {
             console.log('HANDLE RECORDS', records);
-            (window as any).X = [this, records];
+            // this.removeAllChildren();
+            // const sortedRecords = DataUtil.sortByName(records);
             for (let record of records) {
                 const name = record.name;
                 this.addListItem(name);
@@ -58,6 +58,7 @@ export class ProjectsPage extends Page {
 
     onReady() {
         super.onReady();
+        console.log('onReady', this.list);
         ProjectsStore.getJsonFn(this.handlerFn());
     }
 
