@@ -2,8 +2,8 @@ import { ElementRegistry } from "../../../util/ElementRegistry";
 import { EventManager } from "../../../util/EventManager";
 import { AbstractElement } from "../../core/elements/AbstractElement";
 import { List } from "../../widgets/list/List";
-import { ListItem } from "../../widgets/list/ListItem";
 import { Page } from "../Page";
+import { TopMenuListItem } from "./widgets/TopMenuListItem";
 
 export class TopMenuPage extends Page {
 
@@ -19,9 +19,8 @@ export class TopMenuPage extends Page {
         return list;
     }
 
-    createListItem(title: string): ListItem {
-        const listItem = new ListItem(title);
-        listItem.addClickHandler();
+    createListItem(title: string): TopMenuListItem {
+        const listItem = new TopMenuListItem(title);
         const args = listItem.onClickArgs();
         args.action = 'select_page';
         args.page_id = this.id;

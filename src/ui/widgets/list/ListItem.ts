@@ -13,7 +13,6 @@ export class ListItem extends LiElement {
 
     initialize() {
         super.initialize();
-        // this.addClickHandler();
     }
 
     onClickArgs(): any {
