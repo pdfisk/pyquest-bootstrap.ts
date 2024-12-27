@@ -12,6 +12,7 @@ export class ProjectsPage extends Page {
     constructor() {
         super();
         this.projectsStore = ProjectsStore.getInstance();
+        this.body?.setStyle('overflow', 'scroll');
         (window as any).X = this;
     }
 
