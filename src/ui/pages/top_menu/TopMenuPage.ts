@@ -21,6 +21,7 @@ export class TopMenuPage extends Page {
 
     createListItem(title: string): ListItem {
         const listItem = new ListItem(title);
+        listItem.addClickHandler();
         const args = listItem.onClickArgs();
         args.action = 'select_page';
         args.page_id = this.id;
