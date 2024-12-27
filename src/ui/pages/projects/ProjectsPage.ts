@@ -1,12 +1,12 @@
 import { ProjectsStore } from "../../../data/stores/ProjectsStore";
 import { DataUtil } from "../../../util/DataUtil";
 import { AbstractElement } from "../../core";
-import { List } from "../../widgets/list/List";
 import { ListItem } from "../../widgets/list/ListItem";
 import { Page } from "../Page";
+import { ProjectsList } from "./widgets/ProjectsList";
 
 export class ProjectsPage extends Page {
-    list: List | undefined;
+    list: ProjectsList | undefined;
     projectsStore: ProjectsStore;
 
     constructor() {
@@ -29,7 +29,7 @@ export class ProjectsPage extends Page {
     }
 
     defaultContent(): AbstractElement {
-        this.list = new List
+        this.list = new ProjectsList;
         return this.list;
     }
 
@@ -39,7 +39,7 @@ export class ProjectsPage extends Page {
 
     handlerFn(): Function {
         return (records: any) => {
-            this.list?.removeAllChildren();
+            this.clearList();
             const sortedRecords = DataUtil.sortByName(records);
             for (let record of sortedRecords) {
                 const name = record.name;
