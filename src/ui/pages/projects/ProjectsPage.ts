@@ -6,7 +6,7 @@ import { ListItem } from "../../widgets/list/ListItem";
 import { Page } from "../Page";
 
 export class ProjectsPage extends Page {
-    list: List;
+    list: List | undefined;
     projectsStore: ProjectsStore;
 
     constructor() {
@@ -16,15 +16,11 @@ export class ProjectsPage extends Page {
     }
 
     addListItem(title: string) {
-        this.list.addChild(this.createListItem(title));
+        this.list?.addChild(this.createListItem(title));
     }
 
     clearList() {
-        this.list.removeAllChildren();
-    }
-
-    createList(): List {
-        return this.list = new List();
+        this.list?.removeAllChildren();
     }
 
     createListItem(title: string): ListItem {
@@ -33,7 +29,8 @@ export class ProjectsPage extends Page {
     }
 
     defaultContent(): AbstractElement {
-        return this.createList();
+        this.list = new List
+        return this.list;
     }
 
     defaultTitle(): string {
@@ -42,10 +39,10 @@ export class ProjectsPage extends Page {
 
     handlerFn(): Function {
         return (records: any) => {
-            console.log('HANDLE RECORDS', records);
-            // this.removeAllChildren();
-            // const sortedRecords = DataUtil.sortByName(records);
-            for (let record of records) {
+            console.log('HANDLE RECORDS', this.list, records);
+            this.list?.removeAllChildren();
+            const sortedRecords = DataUtil.sortByName(records);
+            for (let record of sortedRecords) {
                 const name = record.name;
                 this.addListItem(name);
             }

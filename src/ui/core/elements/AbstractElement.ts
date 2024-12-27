@@ -21,6 +21,8 @@ export abstract class AbstractElement implements IPerformAction {
 
     addChild(child: AbstractElement) {
         this.children.push(child);
+        if (child.element)
+            this.element?.appendChild(child.element);
     }
 
     addChildren() {
