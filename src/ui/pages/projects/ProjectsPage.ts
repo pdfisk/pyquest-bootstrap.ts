@@ -12,7 +12,6 @@ export class ProjectsPage extends Page {
     constructor() {
         super();
         this.projectsStore = ProjectsStore.getInstance();
-        this.body?.setStyle('overflow', 'scroll');
         (window as any).X = this;
     }
 
@@ -40,7 +39,6 @@ export class ProjectsPage extends Page {
 
     handlerFn(): Function {
         return (records: any) => {
-            console.log('HANDLE RECORDS', this.list, records);
             this.list?.removeAllChildren();
             const sortedRecords = DataUtil.sortByName(records);
             for (let record of sortedRecords) {
@@ -56,7 +54,6 @@ export class ProjectsPage extends Page {
 
     onReady() {
         super.onReady();
-        console.log('onReady', this.list);
         ProjectsStore.getJsonFn(this.handlerFn());
     }
 

@@ -189,6 +189,10 @@ export abstract class AbstractElement implements IPerformAction {
         this.setStyle('left', value + '');
     }
 
+    setOverflow(value: string) {
+        this.setStyle('overflow', value);
+    }
+
     setPosition(value: string) {
         this.setStyle('position', value);
     }
