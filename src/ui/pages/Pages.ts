@@ -11,8 +11,8 @@ export class Pages extends FillContainer {
         return this.instance;
     }
 
-    static selectPage(tag: string) {
-        this.getInstance().selectPage(tag);
+    static selectPage(tag: string): Page | undefined {
+        return this.getInstance().selectPage(tag);
     }
 
     static selectTopMenu() {
@@ -29,10 +29,14 @@ export class Pages extends FillContainer {
             page.hide();
     }
 
-    selectPage(tag: string) {
+    selectPage(tag: string): Page | undefined {
         this.hideAllPages();
-        if (this.pageMap.has(tag))
-            this.pageMap.get(tag)?.show();
+        if (this.pageMap.has(tag)) {
+            const page = this.pageMap.get(tag);
+            (page as Page).show();
+            return page;
+        }
+        return undefined;
     }
 
 }

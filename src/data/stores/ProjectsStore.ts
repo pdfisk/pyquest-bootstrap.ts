@@ -18,6 +18,10 @@ export class ProjectsStore extends AbstractStore {
         this.getInstance().getJsonFn(fn);
     }
 
+    static getRecord(name: string): any {
+        return this.getInstance().getRecord(name);
+    }
+
     defaultFn(): Function {
         return (reply: any) => {
             console.log('AJAX REPLY');

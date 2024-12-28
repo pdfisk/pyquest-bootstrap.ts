@@ -38,8 +38,6 @@ export class ProjectsPage extends Page {
 
     handlerFn(): Function {
         return (records: any) => {
-            console.log('HANDLER FN', records);
-            (window as any).X = records;
             this.clearList();
             const sortedRecords = DataUtil.sortByName(records.values().toArray());
             for (let record of sortedRecords) {

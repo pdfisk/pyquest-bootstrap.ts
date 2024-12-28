@@ -41,9 +41,11 @@ export abstract class AbstractStore {
         });
     }
 
+    getRecord(name: string): any {
+        return this.records.get(StringUtil.asTag(name));
+    }
+
     handleResult(records: any[], fn: Function) {
-        console.log('HANDLE RESULT', records);
-        (window as any).X = [this, fn, records];
         this.records.clear();
         for (let record of records)
             this.records.set(StringUtil.asTag(record.name), record);
