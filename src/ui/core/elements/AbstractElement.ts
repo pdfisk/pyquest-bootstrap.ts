@@ -5,12 +5,14 @@ const $: any = (window as any).$;
 
 export abstract class AbstractElement implements IPerformAction {
     children: AbstractElement[] = [];
+    clickHandlerFn: Function | null = null;
     element: HTMLElement | null;
     id: string = '';
     static idCounter: number = 0;
 
     constructor() {
         this.element = this.createElement();
+        this.addClickHandlerFn();
         this.initialize();
         this.addChildren();
         this.addClasses();
@@ -42,9 +44,18 @@ export abstract class AbstractElement implements IPerformAction {
     }
 
     addClickHandler() {
-        const args = this.onClickArgs();
-        const jsonStr64 = btoa(JSON.stringify(args));
-        this.setAttribute('onclick', `pq_api.handleEvent('${jsonStr64}')`);
+        // const args = this.onClickArgs();
+        // const jsonStr64 = btoa(JSON.stringify(args));
+        // const fn = (a:any,b:any,c:any) => {
+        //     console.log('A',a);
+        //     console.log('B', b);
+        //     console.log('C',c);
+        // }
+        // this.setAttribute('onclick', fn);
+        // // this.setAttribute('onclick', `pq_api.handleEvent('${jsonStr64}')`);
+    }
+
+    addClickHandlerFn() {
     }
 
     addEventHandler(eventName: string, fn: Function) {
@@ -90,7 +101,7 @@ export abstract class AbstractElement implements IPerformAction {
     }
 
     handlesOnReady(): boolean {
-        return false;
+        return this.clickHandlerFn !== null;
     }
 
     hide() {
@@ -121,9 +132,12 @@ export abstract class AbstractElement implements IPerformAction {
     }
 
     onReady() {
+        if (this.clickHandlerFn instanceof Function)
+            (this.element as any).onclick = this.clickHandlerFn;
     }
 
     performAction(actionName: string, args: any): void {
+        console.log('AbstractElement performAction', this.id, actionName, args);
     }
 
     removeAllChildren() {
@@ -149,7 +163,7 @@ export abstract class AbstractElement implements IPerformAction {
         }
     }
 
-    setAttribute(name: string, value: string) {
+    setAttribute(name: string, value: any) {
         if (this.element === undefined)
             return;
         this.element?.setAttribute(name, value);

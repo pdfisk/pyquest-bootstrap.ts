@@ -3,12 +3,13 @@ import { EventManager } from "../../../util/EventManager";
 import { AbstractElement } from "../../core/elements/AbstractElement";
 import { List } from "../../widgets/list/List";
 import { Page } from "../Page";
+import { TopMenuList } from "./widgets/TopMenuList";
 import { TopMenuListItem } from "./widgets/TopMenuListItem";
 
 export class TopMenuPage extends Page {
 
     createList(): List {
-        const list = new List();
+        const list = new TopMenuList();
         list.addChild(this.createListItem('Projects'));
         list.addChild(this.createListItem('Editor'));
         list.addChild(this.createListItem('Transcript'));
