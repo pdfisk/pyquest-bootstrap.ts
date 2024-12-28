@@ -1,4 +1,3 @@
-import { EventManager } from "../../../util/EventManager";
 import { Pages } from "../../pages/Pages";
 import { Button } from "./Button";
 

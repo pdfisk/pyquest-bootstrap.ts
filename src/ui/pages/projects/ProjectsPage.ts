@@ -12,7 +12,6 @@ export class ProjectsPage extends Page {
     constructor() {
         super();
         this.projectsStore = ProjectsStore.getInstance();
-        (window as any).X = this;
     }
 
     addListItem(title: string) {
@@ -39,8 +38,10 @@ export class ProjectsPage extends Page {
 
     handlerFn(): Function {
         return (records: any) => {
+            console.log('HANDLER FN', records);
+            (window as any).X = records;
             this.clearList();
-            const sortedRecords = DataUtil.sortByName(records);
+            const sortedRecords = DataUtil.sortByName(records.values().toArray());
             for (let record of sortedRecords) {
                 const name = record.name;
                 this.addListItem(name);

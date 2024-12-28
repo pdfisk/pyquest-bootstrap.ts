@@ -1,9 +1,23 @@
+import { StringUtil } from "../../util/StringUtil";
+
 export abstract class AbstractStore {
-    records: any[] = [];
+    records: Map<string, any> = new Map;
+
+    asArray(): any[] {
+        return (this.records.values() as any).toArray();
+    }
+
+    asSortedArray(): any[] {
+        return this.asArray().sort(this.getCompareFn());
+    }
 
     abstract defaultFn(): Function;
 
     abstract defaultUrl(): string;
+
+    getCompareFn(): any {
+        return (a: any, b: any) => { return 0; }
+    }
 
     getJson() {
         this.getJsonFn(this.defaultFn());
@@ -28,8 +42,12 @@ export abstract class AbstractStore {
     }
 
     handleResult(records: any[], fn: Function) {
-        this.records = records;
-        if (fn) fn(this.records);
+        console.log('HANDLE RESULT', records);
+        (window as any).X = [this, fn, records];
+        this.records.clear();
+        for (let record of records)
+            this.records.set(StringUtil.asTag(record.name), record);
+        if (fn) fn(this.asSortedArray());
     }
 
 
