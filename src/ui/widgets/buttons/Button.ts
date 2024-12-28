@@ -13,4 +13,16 @@ export class Button extends ButtonElement {
         this.addClass('btn-secondary');
     }
 
+    addClickHandlerFn() {
+        this.clickHandlerFn = (evt: any) => {
+            const target = evt.target;
+            const id = target.id;
+            const text = target.textContent;
+            this.onButtonClicked(id, text);
+        };
+    }
+
+    onButtonClicked(id: string, text: string) {
+    }
+
 }

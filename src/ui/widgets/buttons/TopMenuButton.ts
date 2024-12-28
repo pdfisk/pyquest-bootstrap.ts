@@ -6,9 +6,10 @@ export class TopMenuButton extends Button {
 
     constructor() {
         super('Top Menu');
-        const fn = () => { Pages.selectTopMenu(); };
-        EventManager.mapEvent(this.id, 'click', fn);
-        this.addClickHandler();
+    }
+
+    onButtonClicked(id: string, text: string) {
+        Pages.selectTopMenu();
     }
 
 }
