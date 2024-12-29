@@ -27,7 +27,7 @@ export class VmApi {
     // }
 
     static run(src: string, inputId: number = 0, outputId: number = 0): void {
-        this.getInstance().run_with_notification(src, inputId, outputId);
+        this.getInstance().run(src, inputId, outputId);
     }
 
     // static runCompiled(compiledCodeObjectJson: string, inputId: number = 0, outputId: number = 0): any {
@@ -38,7 +38,8 @@ export class VmApi {
         const setActionHandlerFn: Function = this.getVmApiSetActionHandlerFn();
         const setResultHandlerFn: Function = this.getVmApiSetResultHandlerFn();
         this.callVmApiFn(setActionHandlerFn, this.handleAction);
-        this.callVmApiFn(setResultHandlerFn, this.handleResult);
+        const fn = (x:any)=>{console.log('!!!RESULT!!!', x)};
+        this.callVmApiFn(setResultHandlerFn, fn);
     }
 
     callVmApiFn(fn: Function, ...args: any[]): any {

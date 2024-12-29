@@ -1,6 +1,7 @@
 import { Version } from '../constants/Version';
 import { Viewport } from '../ui/viewport/Viewport';
 import { EventManager } from '../util/EventManager';
+import { VmApi } from './VmApi';
 
 export class PqApi {
 
@@ -38,6 +39,10 @@ export class PqApi {
         const elementId = args.id;
         const eventName = args.event;
         EventManager.handleEvent(elementId, eventName, args);
+    }
+
+    run(code: string) {
+        VmApi.run(code);
     }
 
 }
