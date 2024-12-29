@@ -4,7 +4,7 @@ export class TopMenuListItem extends ListItem {
 
     initialize() {
         super.initialize();
-        this.addClickHandler();
+        // this.addClickHandler();
     }
     
 }

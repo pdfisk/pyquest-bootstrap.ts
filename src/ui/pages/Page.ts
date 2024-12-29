@@ -43,6 +43,10 @@ export class Page extends Card {
         return new DivElement();
     }
 
+    handlesOnReady(): boolean {
+        return true;
+    }
+
     performAction(actionName: string, args: any): void {
         switch (actionName) {
             case 'select_page':

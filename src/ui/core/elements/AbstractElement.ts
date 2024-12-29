@@ -43,18 +43,6 @@ export abstract class AbstractElement implements IPerformAction {
             child.addClasses();
     }
 
-    addClickHandler() {
-        // const args = this.onClickArgs();
-        // const jsonStr64 = btoa(JSON.stringify(args));
-        // const fn = (a:any,b:any,c:any) => {
-        //     console.log('A',a);
-        //     console.log('B', b);
-        //     console.log('C',c);
-        // }
-        // this.setAttribute('onclick', fn);
-        // // this.setAttribute('onclick', `pq_api.handleEvent('${jsonStr64}')`);
-    }
-
     addClickHandlerFn() {
     }
 
@@ -161,6 +149,14 @@ export abstract class AbstractElement implements IPerformAction {
             this.renderChild(child);
             child.renderChildren();
         }
+    }
+
+    setAbsolutePosition() {
+        this.setPosition('absolute');
+        this.setTop(0);
+        this.setRight(0);
+        this.setBottom(0);
+        this.setLeft(0);
     }
 
     setAttribute(name: string, value: any) {

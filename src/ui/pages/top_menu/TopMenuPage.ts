@@ -7,6 +7,13 @@ import { TopMenuList } from "./widgets/TopMenuList";
 import { TopMenuListItem } from "./widgets/TopMenuListItem";
 
 export class TopMenuPage extends Page {
+    static instance: TopMenuPage;
+
+    static getInstance(): TopMenuPage {
+        if (this.instance === undefined)
+            this.instance = new TopMenuPage;
+        return this.instance;
+    }
 
     createList(): List {
         const list = new TopMenuList();

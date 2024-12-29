@@ -34,13 +34,13 @@ export class Viewport {
     }
 
     addPages() {
-        this.addPage(new BoardPage);
-        this.addPage(new EditorPage);
-        this.addPage(new HelpPage);
-        this.addPage(new LoginPage);
-        this.addPage(new ProjectsPage);
-        this.addPage(new StatusPage);
-        this.addPage(new TopMenuPage);
+        this.addPage(BoardPage.getInstance());
+        this.addPage(EditorPage.getInstance());
+        this.addPage(HelpPage.getInstance());
+        this.addPage(LoginPage.getInstance());
+        this.addPage(ProjectsPage.getInstance());
+        this.addPage(StatusPage.getInstance());
+        this.addPage(TopMenuPage.getInstance());
         this.addPage(TranscriptPage.getInstance());
     }
 

@@ -5,6 +5,13 @@ import { Page } from "../Page";
 
 export class StatusPage extends Page {
     textPanel?: TextPanel;
+    static instance: StatusPage;
+
+    static getInstance(): StatusPage {
+        if (this.instance === undefined)
+            this.instance = new StatusPage;
+        return this.instance;
+    }
 
     constructor() {
         super();

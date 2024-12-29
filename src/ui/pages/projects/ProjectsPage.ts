@@ -8,6 +8,13 @@ import { ProjectsList } from "./widgets/ProjectsList";
 export class ProjectsPage extends Page {
     list: ProjectsList | undefined;
     projectsStore: ProjectsStore;
+    static instance: ProjectsPage;
+
+    static getInstance(): ProjectsPage {
+        if (this.instance === undefined)
+            this.instance = new ProjectsPage;
+        return this.instance;
+    }
 
     constructor() {
         super();
