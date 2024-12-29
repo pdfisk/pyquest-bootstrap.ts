@@ -12,7 +12,7 @@ export class TranscriptPage extends Page {
         return this.instance;
     }
 
-    static prn(text:string) {
+    static prn(text: string) {
         this.getInstance().prn(text);
     }
 
@@ -29,7 +29,7 @@ export class TranscriptPage extends Page {
         return 'Transcript';
     }
 
-     prn(text:string) {
+    prn(text: string) {
         this.textPanel?.prn(text);
     }
 

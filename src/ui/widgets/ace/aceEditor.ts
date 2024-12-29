@@ -7,7 +7,6 @@ export class AceEditor extends DivElement {
 
     constructor() {
         super();
-        (window as any).X = this;
     }
 
     handlesOnReady(): boolean {
@@ -33,6 +32,11 @@ export class AceEditor extends DivElement {
     setRange(startRow: number, startCol: number, endRow: number, endCol: number) {
         if (this.editor)
             this.editor.selection.setRange(new this.ace.Range(startRow, startCol, endRow, endCol));
+    }
+
+    setStyles() {
+        super.setStyles();
+        this.setPositionAbsoluteWithInsets();
     }
 
     setValue(value: string) {

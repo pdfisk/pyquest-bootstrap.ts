@@ -6,13 +6,13 @@ export class Panel extends FluidContainer {
         super.addClasses();
     }
 
+    insetBottom():number {
+        return 63;
+    }
+
     setStyles() {
         super.setStyles();
-        this.setPosition('absolute');
-        this.setTop(0);
-        this.setRight(0);
-        this.setBottom(63);
-        this.setLeft(0);
+        this.setPositionAbsoluteWithInsets();
     }
 
 }

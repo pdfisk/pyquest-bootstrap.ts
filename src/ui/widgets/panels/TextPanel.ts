@@ -17,17 +17,18 @@ export class TextPanel extends Panel {
     initialize() {
         super.initialize();
         this.textArea = new TextAreaElement;
-        this.textArea.setPosition('absolute');
-        this.textArea.setTop(0);
-        this.textArea.setLeft(0);
-        this.textArea.setRight(0);
-        this.textArea.setBottom(0);
+        this.setPositionAbsoluteWithInsets();
     }
 
     prn(text: string) {
         const oldText = this.textArea?.getValue();
         const newText = `${oldText}${text}\n`;
         this.textArea?.setValue(newText);
+    }
+
+    setStyles() {
+        super.setStyles();
+        this.textArea?.setPositionAbsoluteWithInsets();
     }
 
 }

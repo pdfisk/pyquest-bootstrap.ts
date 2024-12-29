@@ -1,5 +1,5 @@
 import { AbstractElement } from "../../core";
-import { AceEditor } from "../../widgets/ace/aceEditor";
+import { AceEditor } from "../../widgets/ace/AceEditor";
 import { Page } from "../Page";
 
 export class EditorPage extends Page {
@@ -23,11 +23,6 @@ export class EditorPage extends Page {
 
     defaultTitle(): string {
         return 'Editor';
-    }
-
-    onReady() {
-        super.onReady();
-        this.aceEditor?.setPositionAbsoluteWithInsets();
     }
 
     setValue(text: string) {
