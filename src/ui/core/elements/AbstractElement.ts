@@ -102,6 +102,22 @@ export abstract class AbstractElement implements IPerformAction {
             $(this.element).ready(() => { this.onReady(); });
     }
 
+    insetBottom(): number {
+        return 0;
+    }
+
+    insetLeft(): number {
+        return 0;
+    }
+
+    insetRight(): number {
+        return 0;
+    }
+
+    insetTop(): number {
+        return 0;
+    }
+
     isConnected(): boolean {
         if (this.element)
             return this.element.isConnected;
@@ -151,14 +167,6 @@ export abstract class AbstractElement implements IPerformAction {
         }
     }
 
-    setAbsolutePosition() {
-        this.setPosition('absolute');
-        this.setTop(0);
-        this.setRight(0);
-        this.setBottom(0);
-        this.setLeft(0);
-    }
-
     setAttribute(name: string, value: any) {
         if (this.element === undefined)
             return;
@@ -205,6 +213,18 @@ export abstract class AbstractElement implements IPerformAction {
 
     setPosition(value: string) {
         this.setStyle('position', value);
+    }
+
+    setPositionAbsolute() {
+        this.setPosition('absolute');
+    }
+
+    setPositionAbsoluteWithInsets() {
+        this.setPositionAbsolute();
+        this.setTop(this.insetTop());
+        this.setRight(this.insetRight());
+        this.setBottom(this.insetBottom());
+        this.setLeft(this.insetLeft());
     }
 
     setProperties() {

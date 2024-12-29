@@ -27,7 +27,7 @@ export class EditorPage extends Page {
 
     onReady() {
         super.onReady();
-        this.aceEditor?.setAbsolutePosition();
+        this.aceEditor?.setPositionAbsoluteWithInsets();
     }
 
     setValue(text: string) {
