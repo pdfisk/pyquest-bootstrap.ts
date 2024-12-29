@@ -41,7 +41,7 @@ export class Viewport {
         this.addPage(new ProjectsPage);
         this.addPage(new StatusPage);
         this.addPage(new TopMenuPage);
-        this.addPage(new TranscriptPage);
+        this.addPage(TranscriptPage.getInstance());
     }
 
     selectPage(tag: string) {

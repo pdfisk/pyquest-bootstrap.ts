@@ -1,4 +1,5 @@
 import { VmApiConstants } from "../constants/VmApiConstants";
+import { TranscriptPage } from "../ui/pages/transcript/TranscriptPage";
 
 export class VmApi {
 
@@ -38,8 +39,7 @@ export class VmApi {
         const setActionHandlerFn: Function = this.getVmApiSetActionHandlerFn();
         const setResultHandlerFn: Function = this.getVmApiSetResultHandlerFn();
         this.callVmApiFn(setActionHandlerFn, this.handleAction);
-        const fn = (x:any)=>{console.log('!!!RESULT!!!', x)};
-        this.callVmApiFn(setResultHandlerFn, fn);
+        this.callVmApiFn(setResultHandlerFn, this.handleResult);
     }
 
     callVmApiFn(fn: Function, ...args: any[]): any {
@@ -103,10 +103,14 @@ export class VmApi {
         }
     }
 
-    handleResult(...args: any[]) {
-        console.log('handleResult', args);
-        // ResultHandler.handleResult(...args);
+    handleResult(x: any) {
+        TranscriptPage.prn(x);
     }
+
+    // handleResult(...args: any[]) {
+    //     console.log('handleResult', args);
+    //     // ResultHandler.handleResult(...args);
+    // }
 
     // postEvent(eventName: string, args: any) {
     //     const data = { event_name: eventName, args: args };
