@@ -10,6 +10,7 @@ export class Button extends ButtonElement {
     addClasses() {
         super.addClasses();
         this.addClass('btn');
+        this.addClass('btn-sm');
         this.addClass('btn-secondary');
     }
 
