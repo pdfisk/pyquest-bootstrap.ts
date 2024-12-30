@@ -1,6 +1,8 @@
 import { AbstractElement } from "../../core";
+import { CardFooter } from "../../widgets/card/CardFooter";
 import { TextPanel } from "../../widgets/panels/TextPanel";
 import { Page } from "../Page";
+import { TranscriptPageFooter } from "./widgets/TranscriptPageFooter";
 
 export class TranscriptPage extends Page {
     textPanel?: TextPanel;
@@ -18,6 +20,10 @@ export class TranscriptPage extends Page {
 
     constructor() {
         super();
+    }
+
+    createCardFooter(): CardFooter {
+        return new TranscriptPageFooter;
     }
 
     defaultContent(): AbstractElement {
