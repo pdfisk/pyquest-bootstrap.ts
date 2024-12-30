@@ -22,8 +22,12 @@ export class TranscriptPage extends Page {
         super();
     }
 
+    clear() {
+        console.log('CLEAR');
+    }
+
     createCardFooter(): CardFooter {
-        return new TranscriptPageFooter;
+        return new TranscriptPageFooter(this);
     }
 
     defaultContent(): AbstractElement {

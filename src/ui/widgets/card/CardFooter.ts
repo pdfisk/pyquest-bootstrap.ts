@@ -15,8 +15,20 @@ export class CardFooter extends FluidContainer {
         this.addClass('overflow-hidden');
     }
 
+    addButtons() {
+    }
+
+    handlesOnReady(): boolean {
+        return true;
+    }
+
     insetTop(): number {
         return -1;
+    }
+
+    onReady() {
+        super.onReady();
+        this.addButtons();
     }
 
     setStyles() {
