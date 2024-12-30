@@ -11,11 +11,10 @@ export class CardBody extends FluidContainer {
     setStyles() {
         super.setStyles();
         this.setPosition('absolute');
-        this.setBottom(75);
+        this.setBottom(65);
         this.setTop(65);
         this.setLeft(0);
         this.setRight(0);
-        this.setBackgroundColor('red');
     }
 
 }

@@ -22,7 +22,7 @@ export class CardFooter extends FluidContainer {
     setStyles() {
         super.setStyles();
         this.setPositionAbsoluteWithInsets();
-        this.setHeight(65);
+        this.setHeight(64);
     }
 
 }
