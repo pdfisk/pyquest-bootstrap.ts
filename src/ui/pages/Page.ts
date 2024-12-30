@@ -19,11 +19,11 @@ export class Page extends Card {
     }
 
     addChildren() {
-        this.header = new CardHeader(this.defaultTitle());
+        this.header = this.createCardHeader(this.defaultTitle());
         if (this.showTopMenuButton())
             this.header.addTopMenuButton();
-        this.body = new CardBody;
-        this.footer = new CardFooter;
+        this.body = this.createCardBody();
+        this.footer = this.createCardFooter();
         this.addChild(this.header);
         this.addChild(this.body);
         this.addChild(this.footer);
@@ -33,6 +33,18 @@ export class Page extends Card {
     addClasses() {
         super.addClasses();
         this.addClass('card');
+    }
+
+    createCardBody(): CardBody {
+        return new CardBody;
+    }
+
+    createCardFooter(): CardFooter {
+        return new CardFooter;
+    }
+
+    createCardHeader(caption: string): CardHeader {
+        return new CardHeader(caption);
     }
 
     createTag(): string {
