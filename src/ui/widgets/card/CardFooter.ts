@@ -4,7 +4,7 @@ export class CardFooter extends FluidContainer {
 
     constructor() {
         super();
-        this.setBackgroundColor('#d3d3d3');
+        this.setBackgroundColor('blue');
     }
 
     addClasses() {
@@ -23,7 +23,6 @@ export class CardFooter extends FluidContainer {
         super.setStyles();
         this.setPositionAbsoluteWithInsets();
         this.setHeight(65);
-        this.setBackgroundColor('blue');
     }
 
 }

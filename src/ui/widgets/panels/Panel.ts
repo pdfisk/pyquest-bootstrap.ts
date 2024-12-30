@@ -6,10 +6,6 @@ export class Panel extends FluidContainer {
         super.addClasses();
     }
 
-    insetBottom():number {
-        return 63;
-    }
-
     setStyles() {
         super.setStyles();
         this.setPositionAbsoluteWithInsets();
