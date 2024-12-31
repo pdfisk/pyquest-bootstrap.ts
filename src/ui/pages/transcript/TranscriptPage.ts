@@ -23,7 +23,7 @@ export class TranscriptPage extends Page {
     }
 
     clear() {
-        console.log('CLEAR');
+        this.textPanel?.clear();
     }
 
     createCardFooter(): CardFooter {

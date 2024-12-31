@@ -14,6 +14,10 @@ export class TextPanel extends Panel {
             this.addChild(this.textArea);
     }
 
+    clear() {
+        this.textArea?.clear();
+    }
+
     initialize() {
         super.initialize();
         this.textArea = new TextAreaElement;

@@ -8,6 +8,10 @@ export class TextAreaElement extends AbstractElement {
         super();
     }
 
+    clear() {
+        this.setValue('');
+    }
+
     defaultClasses(): string[] {
         return super.defaultClasses().concat('font-monospace');
     }
@@ -19,7 +23,7 @@ export class TextAreaElement extends AbstractElement {
     getValue(): string {
         if (!this.isReady)
             return '';
-        return (this.element as any).textContent;
+        return (this.element as any).value;
     }
 
     handlesOnReady(): boolean {
@@ -37,7 +41,7 @@ export class TextAreaElement extends AbstractElement {
             this.deferredText += value;
             return;
         }
-        (this.element as any).textContent = value;
+        (this.element as any).value = value;
     }
 
 }
