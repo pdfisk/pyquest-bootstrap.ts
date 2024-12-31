@@ -1,6 +1,6 @@
 import { AbstractElement } from "../../core";
+import { AbstractPageFooter } from "../../widgets/abstract/AbstractPageFooter";
 import { AceEditor } from "../../widgets/ace/AceEditor";
-import { CardFooter } from "../../widgets/card/CardFooter";
 import { Page } from "../Page";
 import { EditorPageFooter } from "./widgets/EditorPageFooter";
 
@@ -22,7 +22,7 @@ export class EditorPage extends Page {
         this.setValue('');
     }
 
-    createCardFooter(): CardFooter {
+    createPageFooter(): AbstractPageFooter {
         return new EditorPageFooter(this);
     }
 

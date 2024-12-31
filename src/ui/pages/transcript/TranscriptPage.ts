@@ -1,5 +1,5 @@
 import { AbstractElement } from "../../core";
-import { CardFooter } from "../../widgets/card/CardFooter";
+import { AbstractPageFooter } from "../../widgets/abstract/AbstractPageFooter";
 import { TextPanel } from "../../widgets/panels/TextPanel";
 import { Page } from "../Page";
 import { TranscriptPageFooter } from "./widgets/TranscriptPageFooter";
@@ -26,7 +26,7 @@ export class TranscriptPage extends Page {
         this.textPanel?.clear();
     }
 
-    createCardFooter(): CardFooter {
+    createPageFooter(): AbstractPageFooter {
         return new TranscriptPageFooter(this);
     }
 

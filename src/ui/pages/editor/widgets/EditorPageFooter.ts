@@ -1,9 +1,9 @@
-import { CardFooter } from "../../../widgets/card/CardFooter";
+import { AbstractPageFooter } from "../../../widgets/abstract/AbstractPageFooter";
 import { EditorPage } from "../EditorPage";
 import { EditorClearButton } from "./EditorClearButton";
 import { EditorRunButton } from "./EditorRunButton";
 
-export class EditorPageFooter extends CardFooter {
+export class EditorPageFooter extends AbstractPageFooter {
     clearButton?: EditorClearButton;
     parent: EditorPage;
     runButton?: EditorRunButton;

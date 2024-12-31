@@ -1,8 +1,8 @@
-import { CardFooter } from "../../../widgets/card/CardFooter";
+import { AbstractPageFooter } from "../../../widgets/abstract/AbstractPageFooter";
 import { TranscriptPage } from "../TranscriptPage";
 import { TranscriptClearButton } from "./TranscriptClearButton";
 
-export class TranscriptPageFooter extends CardFooter {
+export class TranscriptPageFooter extends AbstractPageFooter {
     clearButton: TranscriptClearButton | undefined;
     parent: TranscriptPage;
 

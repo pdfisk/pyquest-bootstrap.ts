@@ -1,15 +1,15 @@
 import { StringUtil } from "../../util/StringUtil";
 import { AbstractElement } from "../core/elements/AbstractElement";
 import { DivElement } from "../core/elements/DivElement";
+import { AbstractPageFooter } from "../widgets/abstract/AbstractPageFooter";
 import { Card } from "../widgets/card/Card";
 import { CardBody } from "../widgets/card/CardBody";
-import { CardFooter } from "../widgets/card/CardFooter";
 import { CardHeader } from "../widgets/card/CardHeader";
 import { Pages } from "./Pages";
 
 export class Page extends Card {
     body: CardBody | undefined;
-    footer: CardFooter | undefined;
+    footer: AbstractPageFooter | undefined;
     header: CardHeader | undefined;
     tag: string;
 
@@ -23,7 +23,7 @@ export class Page extends Card {
         if (this.showTopMenuButton())
             this.header.addTopMenuButton();
         this.body = this.createCardBody();
-        this.footer = this.createCardFooter();
+        this.footer = this.createPageFooter();
         this.addChild(this.header);
         this.addChild(this.body);
         this.addChild(this.footer);
@@ -39,12 +39,12 @@ export class Page extends Card {
         return new CardBody;
     }
 
-    createCardFooter(): CardFooter {
-        return new CardFooter;
-    }
-
     createCardHeader(caption: string): CardHeader {
         return new CardHeader(caption);
+    }
+
+    createPageFooter(): AbstractPageFooter {
+        return new AbstractPageFooter;
     }
 
     createTag(): string {
