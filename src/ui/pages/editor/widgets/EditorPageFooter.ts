@@ -1,19 +1,23 @@
 import { CardFooter } from "../../../widgets/card/CardFooter";
 import { EditorPage } from "../EditorPage";
 import { EditorClearButton } from "./EditorClearButton";
+import { EditorRunButton } from "./EditorRunButton";
 
 export class EditorPageFooter extends CardFooter {
-    clearButton: EditorClearButton | undefined;
+    clearButton?: EditorClearButton;
     parent: EditorPage;
+    runButton?: EditorRunButton;
 
     constructor(parent: EditorPage) {
         super();
         this.parent = parent;
         this.clearButton = new EditorClearButton(this.parent);
+        this.runButton = new EditorRunButton(this.parent);
         this.setBackgroundColor('peru');
     }
 
     addButtons() {
+        this.addChild(this.runButton as EditorRunButton);
         this.addChild(this.clearButton as EditorClearButton);
     }
 

@@ -35,8 +35,11 @@ export class EditorPage extends Page {
         return 'Editor';
     }
 
-    getValue():string {
-       return this.aceEditor?.getValue();
+    getValue(): string {
+        const text = this.aceEditor?.getValue();
+        if (text !== undefined)
+            return text;
+        return '';
     }
 
     setValue(text: string) {

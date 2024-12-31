@@ -237,6 +237,10 @@ export abstract class AbstractElement implements IPerformAction {
         this.setStyle('right', value + '');
     }
 
+    setRightMargin(value: number) {
+        this.setStyle('margin-right', value + 'px');
+    }
+
     setStyles() {
     }
 
