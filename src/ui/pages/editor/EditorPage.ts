@@ -42,6 +42,11 @@ export class EditorPage extends Page {
         return '';
     }
 
+    run() {
+        const code = this.getValue();
+        (window as any).pq_api.run(code);
+    }
+
     setValue(text: string) {
         this.aceEditor?.setValue(text);
     }

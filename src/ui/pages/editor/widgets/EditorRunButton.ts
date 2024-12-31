@@ -11,8 +11,7 @@ export class EditorRunButton extends Button {
     }
 
     onButtonClicked(id: string, text: string) {
-        const code = this.parent.getValue();
-        console.log('RUN CODE', code);
+        this.parent.run();
     }
 
 }

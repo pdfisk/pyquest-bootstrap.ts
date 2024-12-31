@@ -1,3 +1,4 @@
+import { SizeConstants } from "../../../constants/SizeConstants";
 import { FluidContainer } from "../../containers/FluidContainer";
 
 export class CardFooter extends FluidContainer {
@@ -28,13 +29,13 @@ export class CardFooter extends FluidContainer {
 
     onReady() {
         super.onReady();
-        this.addButtons();
+        // this.addButtons();
     }
 
     setStyles() {
         super.setStyles();
         this.setPositionAbsoluteWithInsets();
-        this.setHeight(64);
+        this.setHeight(SizeConstants.pageFooterHeight);
     }
 
 }
