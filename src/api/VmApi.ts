@@ -1,4 +1,5 @@
 import { VmApiConstants } from "../constants/VmApiConstants";
+import { ActionHandler } from "../handlers/ActionHandler";
 import { TranscriptPage } from "../ui/pages/transcript/TranscriptPage";
 
 export class VmApi {
@@ -98,13 +99,12 @@ export class VmApi {
             const data = (window as any).JSON.parse(jsonStr);
             const service = data.service;
             const args = data.args;
-            console.log('handleAction', args);
-            // ActionHandler.handleAction(service, args);
+            ActionHandler.handleAction(args);
         }
     }
 
-    handleResult(x: any) {
-        TranscriptPage.prn(x);
+    handleResult(result: any) {
+        TranscriptPage.prn(result);
     }
 
     // handleResult(...args: any[]) {
