@@ -1,3 +1,4 @@
+import { SizeConstants } from "../../../../constants/SizeConstants";
 import { Button } from "../../../widgets/buttons/Button";
 import { EditorPage } from "../EditorPage";
 
@@ -7,7 +8,7 @@ export class EditorClearButton extends Button {
     constructor(parent: EditorPage) {
         super('Clear');
         this.parent = parent;
-        this.setRightMargin(10);
+        this.setRightMargin(SizeConstants.pageFooterButtonRightMargin);
     }
 
     onButtonClicked(id: string, text: string) {

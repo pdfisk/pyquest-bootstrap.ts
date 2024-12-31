@@ -10,7 +10,6 @@ export class TranscriptPageFooter extends AbstractPageFooter {
         super();
         this.parent = parent;
         this.clearButton = new TranscriptClearButton(this.parent);
-        this.setBackgroundColor('peru');
     }
 
     addButtons() {

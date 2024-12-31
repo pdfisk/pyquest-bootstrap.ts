@@ -13,8 +13,7 @@ export class EditorPageFooter extends AbstractPageFooter {
         this.parent = parent;
         this.clearButton = new EditorClearButton(this.parent);
         this.runButton = new EditorRunButton(this.parent);
-        this.setBackgroundColor('peru');
-    }
+     }
 
     addButtons() {
         this.addChild(this.runButton as EditorRunButton);
