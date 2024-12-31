@@ -1,7 +1,7 @@
 import { ColorConstants } from "../../../constants/ColorConstants";
 import { CardFooter } from "../../widgets/card/CardFooter";
 
-export abstract class AbstractPageFooter extends CardFooter {
+export class AbstractPageFooter extends CardFooter {
 
     constructor() {
         super();
