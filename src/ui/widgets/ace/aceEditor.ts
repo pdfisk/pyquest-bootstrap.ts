@@ -9,6 +9,12 @@ export class AceEditor extends DivElement {
         super();
     }
 
+    getValue(): string {
+        if (this.editor)
+            return this.editor.getValue();
+        return '';
+    }
+
     handlesOnReady(): boolean {
         return true;
     }

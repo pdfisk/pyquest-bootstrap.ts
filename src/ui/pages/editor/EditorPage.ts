@@ -1,6 +1,8 @@
 import { AbstractElement } from "../../core";
 import { AceEditor } from "../../widgets/ace/AceEditor";
+import { CardFooter } from "../../widgets/card/CardFooter";
 import { Page } from "../Page";
+import { EditorPageFooter } from "./widgets/EditorPageFooter";
 
 export class EditorPage extends Page {
     aceEditor?: AceEditor;
@@ -16,6 +18,14 @@ export class EditorPage extends Page {
         super();
     }
 
+    clear() {
+        this.setValue('');
+    }
+
+    createCardFooter(): CardFooter {
+        return new EditorPageFooter(this);
+    }
+
     defaultContent(): AbstractElement {
         this.aceEditor = new AceEditor;
         return this.aceEditor;
@@ -23,6 +33,10 @@ export class EditorPage extends Page {
 
     defaultTitle(): string {
         return 'Editor';
+    }
+
+    getValue():string {
+       return this.aceEditor?.getValue();
     }
 
     setValue(text: string) {
