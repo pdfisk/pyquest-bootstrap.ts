@@ -44,4 +44,8 @@ export class TextAreaElement extends AbstractElement {
         (this.element as any).value = value;
     }
 
+    useAbsolutePositioning(): boolean {
+        return true;
+    }
+
 }

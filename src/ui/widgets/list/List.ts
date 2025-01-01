@@ -17,8 +17,11 @@ export class List extends UlElement {
 
     setStyles() {
         super.setStyles();
-        this.setPositionAbsoluteWithInsets();
         this.setOverflow('scroll');
+    }
+
+    useAbsolutePositioning(): boolean {
+        return true;
     }
 
 }

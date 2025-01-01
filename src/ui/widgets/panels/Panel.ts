@@ -6,9 +6,8 @@ export class Panel extends FluidContainer {
         super.addClasses();
     }
 
-    setStyles() {
-        super.setStyles();
-        this.setPositionAbsoluteWithInsets();
+    useAbsolutePositioning(): boolean {
+        return true;
     }
 
 }
