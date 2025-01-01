@@ -7,8 +7,9 @@ export class ListItem extends LiElement {
     tag: string;
 
     constructor(text: string) {
-        super(text);
+        super();
         this.tag = StringUtil.asTag(text);
+        this.setText(text);
     }
 
     defaultClasses(): string[] {
