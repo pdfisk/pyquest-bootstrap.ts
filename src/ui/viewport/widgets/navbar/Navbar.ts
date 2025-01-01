@@ -1,9 +1,9 @@
 import { SizeConstants } from "../../../../constants/SizeConstants";
-import { FluidContainer } from "../../../containers/FluidContainer";
 import { NavElement } from "../../../core/elements/NavElement";
+import { NavbarContainer } from "./widgets/NavbarContainer";
 
-export class ViewportNavbar extends NavElement {
-    container?: FluidContainer;
+export class Navbar extends NavElement {
+    container?: NavbarContainer;
 
     constructor() {
         super();
@@ -11,17 +11,16 @@ export class ViewportNavbar extends NavElement {
 
     addChildren() {
         super.addChildren();
-        if (this.container)
-            this.addChild(this.container);
+        this.container = new NavbarContainer;
+        this.addChild(this.container);
     }
 
     defaultAbsolutePositioning(): boolean {
         return true;
     }
 
-    initialize() {
-        super.initialize();
-        this.container = new FluidContainer;
+    defaultBackgroundColor(): string {
+        return 'blue';
     }
 
     insetBottom(): number {
