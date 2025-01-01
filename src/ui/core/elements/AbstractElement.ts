@@ -224,6 +224,8 @@ export abstract class AbstractElement implements IPerformAction {
         if (this.insetTop() >= 0)
             this.setTop(this.insetTop());
         this.setRight(this.insetRight());
+        if (this.insetBottom() >= 0)
+            this.setBottom(this.insetBottom());
         this.setBottom(this.insetBottom());
         this.setLeft(this.insetLeft());
     }
