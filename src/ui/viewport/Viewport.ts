@@ -34,7 +34,7 @@ export class Viewport {
         this.viewportContainer.addChild(this.pages);
         this.documentBody.addChild(this.viewportContainer);
         this.addPages();
-        this.selectPage('topmenu');
+        this.selectPage('projects');
     }
 
     addPage(page: Page) {
