@@ -19,8 +19,12 @@ export class Navbar extends NavElement {
         return true;
     }
 
-    defaultBackgroundColor(): string {
-        return 'blue';
+    defaultClasses(): string[] {
+        return super.defaultClasses().concat([
+            'navbar',
+            'navbar-light',
+            'bg-light'
+        ]);
     }
 
     insetBottom(): number {

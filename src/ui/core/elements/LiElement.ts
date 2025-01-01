@@ -7,10 +7,6 @@ export class LiElement extends AbstractElement {
         this.setText(text);
     }
 
-    defaultClasses(): string[] {
-        return ['list-group-item'];
-    }
-
     defaultTagName(): string {
         return 'li';
     }

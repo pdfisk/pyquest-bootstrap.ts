@@ -11,6 +11,10 @@ export class ListItem extends LiElement {
         this.tag = StringUtil.asTag(text);
     }
 
+    defaultClasses(): string[] {
+        return super.defaultClasses().concat(['list-group-item']);
+    }
+
     initialize() {
         super.initialize();
     }
