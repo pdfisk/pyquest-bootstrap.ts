@@ -60,6 +60,14 @@ export abstract class AbstractElement implements IPerformAction {
         return elem;
     }
 
+    defaultAbsolutePositioning(): boolean {
+        return false;
+    }
+
+    defaultBackgroundColor(): string {
+        return '';
+    }
+
     defaultClasses(): string[] {
         return [];
     }
@@ -247,8 +255,10 @@ export abstract class AbstractElement implements IPerformAction {
     }
 
     setStyles() {
-        if (this.useAbsolutePositioning())
+        if (this.defaultAbsolutePositioning())
             this.setPositionAbsoluteWithInsets();
+        if (this.defaultBackgroundColor().length > 0)
+            this.setBackgroundColor(this.defaultBackgroundColor());
     }
 
     setText(text: string) {
@@ -277,10 +287,6 @@ export abstract class AbstractElement implements IPerformAction {
     show() {
         this.removeClass('d-none');
         this.addClass('d-block');
-    }
-
-    useAbsolutePositioning(): boolean {
-        return false;
     }
 
 }

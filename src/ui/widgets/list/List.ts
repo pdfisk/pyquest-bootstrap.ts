@@ -20,7 +20,7 @@ export class List extends UlElement {
         this.setOverflow('scroll');
     }
 
-    useAbsolutePositioning(): boolean {
+    defaultAbsolutePositioning(): boolean {
         return true;
     }
 

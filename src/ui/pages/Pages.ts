@@ -1,7 +1,8 @@
-import { FillContainer } from "../containers/FlillContainer";
+import { SizeConstants } from "../../constants/SizeConstants";
+import { FluidContainer } from "../containers/FluidContainer";
 import { Page } from "./Page";
 
-export class Pages extends FillContainer {
+export class Pages extends FluidContainer {
     pageMap: Map<string, Page> = new Map;
     static instance: Pages;
 
@@ -29,6 +30,10 @@ export class Pages extends FillContainer {
             page.hide();
     }
 
+    insetTop(): number {
+        return SizeConstants.navbarHeight;
+    }
+
     selectPage(tag: string): Page | undefined {
         this.hideAllPages();
         if (this.pageMap.has(tag)) {
@@ -37,6 +42,10 @@ export class Pages extends FillContainer {
             return page;
         }
         return undefined;
+    }
+
+    defaultAbsolutePositioning(): boolean {
+        return true;
     }
 
 }

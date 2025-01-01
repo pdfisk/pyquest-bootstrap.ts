@@ -6,7 +6,7 @@ export class Panel extends FluidContainer {
         super.addClasses();
     }
 
-    useAbsolutePositioning(): boolean {
+    defaultAbsolutePositioning(): boolean {
         return true;
     }
 

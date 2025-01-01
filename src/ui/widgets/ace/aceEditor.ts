@@ -49,7 +49,7 @@ export class AceEditor extends DivElement {
             this.initialValue = value;
     }
 
-    useAbsolutePositioning(): boolean {
+    defaultAbsolutePositioning(): boolean {
         return true;
     }
 

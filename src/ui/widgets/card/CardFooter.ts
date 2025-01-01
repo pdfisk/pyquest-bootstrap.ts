@@ -32,7 +32,7 @@ export class CardFooter extends FluidContainer {
         // this.addButtons();
     }
 
-    useAbsolutePositioning(): boolean {
+    defaultAbsolutePositioning(): boolean {
         return true;
     }
 
