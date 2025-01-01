@@ -10,11 +10,13 @@ import { StatusPage } from "../pages/status/StatusPage";
 import { TopMenuPage } from "../pages/top_menu/TopMenuPage";
 import { TranscriptPage } from "../pages/transcript/TranscriptPage";
 import { ViewportContainer } from "./widgets/ViewportContainer";
+import { ViewportNavbar } from "./widgets/ViewportNavbar";
 
 export class Viewport {
     documentBody: BodyElement;
     pages: Pages;
     viewportContainer: ViewportContainer;
+    viewportNavbar: ViewportNavbar;
     static instance: Viewport;
 
     static getInstance() {
@@ -25,8 +27,10 @@ export class Viewport {
 
     private constructor() {
         this.viewportContainer = new ViewportContainer;
+        this.viewportNavbar = new ViewportNavbar;
         this.documentBody = BodyElement.getInstance();
         this.pages = Pages.getInstance();
+        this.viewportContainer.addChild(this.viewportNavbar);
         this.viewportContainer.addChild(this.pages);
         this.documentBody.addChild(this.viewportContainer);
         this.addPages();
