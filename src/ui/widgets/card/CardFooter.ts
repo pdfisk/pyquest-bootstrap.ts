@@ -34,8 +34,11 @@ export class CardFooter extends FluidContainer {
 
     setStyles() {
         super.setStyles();
-        this.setPositionAbsoluteWithInsets();
         this.setHeight(SizeConstants.pageFooterHeight);
+    }
+
+    useAbsolutePositioning(): boolean {
+        return true;
     }
 
 }
