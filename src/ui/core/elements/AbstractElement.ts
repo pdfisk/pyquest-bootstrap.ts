@@ -244,6 +244,8 @@ export abstract class AbstractElement implements IPerformAction {
     }
 
     setStyles() {
+        if (this.useAbsolutePositioning())
+            this.setPositionAbsoluteWithInsets();
     }
 
     setText(text: string) {
@@ -272,6 +274,10 @@ export abstract class AbstractElement implements IPerformAction {
     show() {
         this.removeClass('d-none');
         this.addClass('d-block');
+    }
+
+    useAbsolutePositioning(): boolean {
+        return false;
     }
 
 }

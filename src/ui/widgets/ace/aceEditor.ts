@@ -40,11 +40,6 @@ export class AceEditor extends DivElement {
             this.editor.selection.setRange(new this.ace.Range(startRow, startCol, endRow, endCol));
     }
 
-    setStyles() {
-        super.setStyles();
-        this.setPositionAbsoluteWithInsets();
-    }
-
     setValue(value: string) {
         if (this.editor) {
             this.editor.setValue(value);
@@ -52,6 +47,10 @@ export class AceEditor extends DivElement {
         }
         else
             this.initialValue = value;
+    }
+
+    useAbsolutePositioning(): boolean {
+        return true;
     }
 
 }
