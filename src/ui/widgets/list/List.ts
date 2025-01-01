@@ -11,6 +11,10 @@ export class List extends UlElement {
         };
     }
 
+    defaultClasses(): string[] {
+        return ['list-group'];
+    }
+
     onListItemClicked(id: string, text: string) {
         console.log('onListItemClicked', id, text);
     }
