@@ -10,7 +10,7 @@ import { StatusPage } from "../pages/status/StatusPage";
 import { TopMenuPage } from "../pages/top_menu/TopMenuPage";
 import { TranscriptPage } from "../pages/transcript/TranscriptPage";
 import { ViewportContainer } from "./widgets/ViewportContainer";
-import { ViewportNavbar } from "./widgets/ViewportNavbar";
+import { ViewportNavbar } from "./widgets/navbar/ViewportNavbar";
 
 export class Viewport {
     documentBody: BodyElement;
