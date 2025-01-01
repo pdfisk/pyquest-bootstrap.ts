@@ -9,22 +9,26 @@ import { ProjectsPage } from "../pages/projects/ProjectsPage";
 import { StatusPage } from "../pages/status/StatusPage";
 import { TopMenuPage } from "../pages/top_menu/TopMenuPage";
 import { TranscriptPage } from "../pages/transcript/TranscriptPage";
+import { ViewportBody } from "./widgets/ViewportBody";
 
 export class Viewport {
-    bodyElement: BodyElement;
+    documentBody: BodyElement;
     pages: Pages;
+    viewportBody: ViewportBody;
     static instance: Viewport;
 
     static getInstance() {
         if (this.instance === undefined)
-            this.instance = new Viewport();
+            this.instance = new Viewport;
         return this.instance;
     }
 
     private constructor() {
-        this.bodyElement = BodyElement.getInstance();
+        this.viewportBody = new ViewportBody;
+        this.documentBody = BodyElement.getInstance();
         this.pages = Pages.getInstance();
-        this.bodyElement.addChild(this.pages);
+        this.viewportBody.addChild(this.pages);
+        this.documentBody.addChild(this.viewportBody);
         this.addPages();
         this.selectPage('topmenu');
     }
