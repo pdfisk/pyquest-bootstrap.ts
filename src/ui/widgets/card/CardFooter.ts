@@ -24,17 +24,12 @@ export class CardFooter extends FluidContainer {
     }
 
     insetTop(): number {
-        return -1;
+        return -SizeConstants.pageFooterHeight;
     }
 
     onReady() {
         super.onReady();
         // this.addButtons();
-    }
-
-    setStyles() {
-        super.setStyles();
-        this.setHeight(SizeConstants.pageFooterHeight);
     }
 
     useAbsolutePositioning(): boolean {
