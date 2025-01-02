@@ -9,7 +9,7 @@ export class NavbarLink extends AnchorElement {
     }
 
     defaultClasses(): string[] {
-        const classes = ['navbar-link'];
+        const classes = ['nav-link'];
         return super.defaultClasses().concat(classes);
     }
 

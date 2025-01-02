@@ -10,6 +10,10 @@ export class NavbarDropdown extends NavbarItem {
         this.addChild(this.toggle);
     }
 
+    defaultAbsolutePositioning(): boolean {
+        return true;
+    }
+
     defaultClasses(): string[] {
         const classes = ['dropdown'];
         return super.defaultClasses().concat(classes);

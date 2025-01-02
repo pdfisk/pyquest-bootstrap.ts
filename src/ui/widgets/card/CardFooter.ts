@@ -19,12 +19,12 @@ export class CardFooter extends FluidContainer {
     addButtons() {
     }
 
-    handlesOnReady(): boolean {
-        return true;
-    }
-
     defaultTop(): number {
         return -SizeConstants.pageFooterHeight;
+    }
+
+    handlesOnReady(): boolean {
+        return true;
     }
 
     onReady() {

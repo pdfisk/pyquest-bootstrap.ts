@@ -113,7 +113,7 @@ export abstract class AbstractElement implements IPerformAction {
     }
 
     handlesOnReady(): boolean {
-        return this.clickHandlerFn !== null;
+        return false;
     }
 
     hide() {
@@ -252,6 +252,11 @@ export abstract class AbstractElement implements IPerformAction {
 
     setRightMargin(value: number) {
         this.setStyle('margin-right', value + 'px');
+    }
+
+    setRole(role: string) {
+        if (this.element)
+            (this.element as any).role = role;
     }
 
     setStyles() {

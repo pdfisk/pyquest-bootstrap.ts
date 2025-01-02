@@ -23,6 +23,10 @@ export class Button extends ButtonElement {
         };
     }
 
+    handlesOnReady(): boolean {
+        return true;
+    }
+
     onButtonClicked(id: string, text: string) {
     }
 

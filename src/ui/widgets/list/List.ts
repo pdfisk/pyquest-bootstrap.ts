@@ -16,6 +16,10 @@ export class List extends UlElement {
         return super.defaultClasses().concat(classes);
     }
 
+    handlesOnReady(): boolean {
+        return true;
+    }
+
     onListItemClicked(id: string, text: string) {
         console.log('onListItemClicked', id, text);
     }

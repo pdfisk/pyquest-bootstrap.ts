@@ -10,4 +10,8 @@ export class NavbarContainer extends FluidContainer {
         this.addChild(this.collapse);
     }
 
+    defaultAbsolutePositioning(): boolean {
+        return true;
+    }
+
 }

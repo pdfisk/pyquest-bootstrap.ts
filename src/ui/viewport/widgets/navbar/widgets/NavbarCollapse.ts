@@ -10,9 +10,20 @@ export class NavbarCollapse extends DivElement {
         this.addChild(this.navbarNav);
     }
 
+    defaultAbsolutePositioning(): boolean {
+        return true;
+    }
+
     defaultClasses(): string[] {
-        const classes = ['collapse', 'navbar-collapse'];
+        const classes = ['navbar-collapse'];
         return super.defaultClasses().concat(classes);
+    }
+
+    setCollapsed(collapsed: boolean) {
+        if (collapsed)
+            this.addClass('collapse');
+        else
+            this.removeClass('collapes');
     }
 
 }

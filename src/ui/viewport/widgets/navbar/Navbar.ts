@@ -19,6 +19,10 @@ export class Navbar extends NavElement {
         return true;
     }
 
+    defaultBottom(): number {
+        return -SizeConstants.navbarHeight;
+    }
+
     defaultClasses(): string[] {
         const classes = [
             'navbar',
@@ -26,10 +30,6 @@ export class Navbar extends NavElement {
             'bg-light'
         ];
         return super.defaultClasses().concat(classes);
-    }
-
-    defaultBottom(): number {
-        return -SizeConstants.navbarHeight;
     }
 
 }

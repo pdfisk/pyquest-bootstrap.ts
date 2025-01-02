@@ -7,6 +7,11 @@ export class NavbarNav extends UlElement {
     addChildren() {
         super.addChildren();
         this.dropdown = new NavbarDropdown;
+        this.addChild(this.dropdown);
+    }
+
+    defaultAbsolutePositioning(): boolean {
+        return true;
     }
 
     defaultClasses(): string[] {

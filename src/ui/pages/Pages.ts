@@ -25,13 +25,13 @@ export class Pages extends FluidContainer {
         this.addChild(page);
     }
 
+    defaultTop(): number {
+        return SizeConstants.navbarHeight;
+    }
+
     hideAllPages() {
         for (let page of this.pageMap.values())
             page.hide();
-    }
-
-    defaultTop(): number {
-        return SizeConstants.navbarHeight;
     }
 
     selectPage(tag: string): Page | undefined {
