@@ -3,7 +3,8 @@ import { DivElement } from "../core/elements/DivElement";
 export class FluidContainer extends DivElement {
 
     defaultClasses(): string[] {
-        return ['container-fluid'];
+        const classes = ['container-fluid'];
+        return super.defaultClasses().concat(classes);
     }
 
 }

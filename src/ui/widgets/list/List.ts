@@ -12,7 +12,8 @@ export class List extends UlElement {
     }
 
     defaultClasses(): string[] {
-        return ['list-group'];
+        const classes = ['list-group'];
+        return super.defaultClasses().concat(classes);
     }
 
     onListItemClicked(id: string, text: string) {

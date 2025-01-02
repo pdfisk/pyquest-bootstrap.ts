@@ -7,9 +7,8 @@ export class ViewportDropdownMenu extends UlElement {
     }
 
     defaultClasses(): string[] {
-        return [
-            'dropdown-menu'
-        ];
+        const classes = ['dropdown-menu'];
+        return super.defaultClasses().concat(classes);
     }
 
 }

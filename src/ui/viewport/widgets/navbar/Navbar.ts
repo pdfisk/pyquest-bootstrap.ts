@@ -20,14 +20,15 @@ export class Navbar extends NavElement {
     }
 
     defaultClasses(): string[] {
-        return super.defaultClasses().concat([
+        const classes = [
             'navbar',
             'navbar-light',
             'bg-light'
-        ]);
+        ];
+        return super.defaultClasses().concat(classes);
     }
 
-    insetBottom(): number {
+    defaultBottom(): number {
         return -SizeConstants.navbarHeight;
     }
 

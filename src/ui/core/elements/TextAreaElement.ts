@@ -13,7 +13,8 @@ export class TextAreaElement extends AbstractElement {
     }
 
     defaultClasses(): string[] {
-        return super.defaultClasses().concat('font-monospace');
+        const classes = ['font-monospace'];
+        return super.defaultClasses().concat(classes);
     }
 
     defaultTagName(): string {

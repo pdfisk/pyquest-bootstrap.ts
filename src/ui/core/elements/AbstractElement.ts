@@ -68,12 +68,28 @@ export abstract class AbstractElement implements IPerformAction {
         return '';
     }
 
+    defaultBottom(): number {
+        return 0;
+    }
+
     defaultClasses(): string[] {
         return [];
     }
 
+    defaultLeft(): number {
+        return 0;
+    }
+
+    defaultRight(): number {
+        return 0;
+    }
+
     defaultTagName(): string {
         return 'div';
+    }
+
+    defaultTop(): number {
+        return 0;
     }
 
     getAttribute(name: string): string | null | undefined {
@@ -108,22 +124,6 @@ export abstract class AbstractElement implements IPerformAction {
     initialize() {
         if (this.handlesOnReady())
             $(this.element).ready(() => { this.onReady(); });
-    }
-
-    insetBottom(): number {
-        return 0;
-    }
-
-    insetLeft(): number {
-        return 0;
-    }
-
-    insetRight(): number {
-        return 0;
-    }
-
-    insetTop(): number {
-        return 0;
     }
 
     isConnected(): boolean {
@@ -229,16 +229,16 @@ export abstract class AbstractElement implements IPerformAction {
 
     setPositionAbsoluteWithInsets() {
         this.setPositionAbsolute();
-        if (this.insetTop() >= 0)
-            this.setTop(this.insetTop());
+        if (this.defaultTop() >= 0)
+            this.setTop(this.defaultTop());
         else
-            this.setHeight(-this.insetTop());
-        this.setRight(this.insetRight());
-        if (this.insetBottom() >= 0)
-            this.setBottom(this.insetBottom());
+            this.setHeight(-this.defaultTop());
+        this.setRight(this.defaultRight());
+        if (this.defaultBottom() >= 0)
+            this.setBottom(this.defaultBottom());
         else
-            this.setHeight(-this.insetBottom());
-        this.setLeft(this.insetLeft());
+            this.setHeight(-this.defaultBottom());
+        this.setLeft(this.defaultLeft());
     }
 
     setProperties() {

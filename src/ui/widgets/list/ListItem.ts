@@ -13,7 +13,8 @@ export class ListItem extends LiElement {
     }
 
     defaultClasses(): string[] {
-        return super.defaultClasses().concat(['list-group-item']);
+        const classes = ['list-group-item'];
+        return super.defaultClasses().concat(classes);
     }
 
     initialize() {

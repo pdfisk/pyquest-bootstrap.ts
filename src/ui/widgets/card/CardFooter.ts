@@ -23,7 +23,7 @@ export class CardFooter extends FluidContainer {
         return true;
     }
 
-    insetTop(): number {
+    defaultTop(): number {
         return -SizeConstants.pageFooterHeight;
     }
 

@@ -3,7 +3,8 @@ import { FluidContainer } from "./FluidContainer";
 export class FillContainer extends FluidContainer {
 
     defaultClasses(): string[] {
-        return ['h-100'].concat(super.defaultClasses());
+        const classes = ['h-100'];
+        return super.defaultClasses().concat(classes);
     }
 
 }

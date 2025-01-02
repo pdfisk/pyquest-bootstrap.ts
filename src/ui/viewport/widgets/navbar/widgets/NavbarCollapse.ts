@@ -11,7 +11,8 @@ export class NavbarCollapse extends DivElement {
     }
 
     defaultClasses(): string[] {
-        return ['collapse', 'navbar-collapse'];
+        const classes = ['collapse', 'navbar-collapse'];
+        return super.defaultClasses().concat(classes);
     }
 
 }

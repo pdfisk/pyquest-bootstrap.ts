@@ -30,7 +30,7 @@ export class Pages extends FluidContainer {
             page.hide();
     }
 
-    insetTop(): number {
+    defaultTop(): number {
         return SizeConstants.navbarHeight;
     }
 

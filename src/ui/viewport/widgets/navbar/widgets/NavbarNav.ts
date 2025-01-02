@@ -7,11 +7,11 @@ export class NavbarNav extends UlElement {
     addChildren() {
         super.addChildren();
         this.dropdown = new NavbarDropdown;
-this
     }
 
     defaultClasses(): string[] {
-        return ['navbar-nav'];
+        const classes = ['navbar-nav'];
+        return super.defaultClasses().concat(classes);
     }
 
 }

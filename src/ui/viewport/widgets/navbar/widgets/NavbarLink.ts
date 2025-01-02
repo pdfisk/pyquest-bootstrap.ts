@@ -5,7 +5,8 @@ export class NavbarLink extends AnchorElement {
     dropdown?: NavbarDropdown;
 
     defaultClasses(): string[] {
-        return super.defaultClasses().concat(['navbar-link']);
+        const classes = ['navbar-link'];
+        return super.defaultClasses().concat(classes);
     }
 
 }
