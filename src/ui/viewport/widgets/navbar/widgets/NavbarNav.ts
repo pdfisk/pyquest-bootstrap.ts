@@ -2,7 +2,7 @@ import { UlElement } from "../../../../core/elements/UlElement";
 import { NavbarDropdown } from "./NavbarDropdown";
 
 export class NavbarNav extends UlElement {
-    dropdown?:NavbarDropdown;
+    dropdown?: NavbarDropdown;
 
     addChildren() {
         super.addChildren();
