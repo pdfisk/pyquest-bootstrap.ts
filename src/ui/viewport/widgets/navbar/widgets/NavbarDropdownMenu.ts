@@ -1,6 +1,6 @@
 import { UlElement } from "../../../../core/elements/UlElement";
 
-export class ViewportDropdownMenu extends UlElement {
+export class NavbarDropdownMenu extends UlElement {
 
     constructor() {
         super();
