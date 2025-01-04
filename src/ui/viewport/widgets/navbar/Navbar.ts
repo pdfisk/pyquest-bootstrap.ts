@@ -1,4 +1,12 @@
 import { NavElement } from "../../../core/elements/NavElement";
+import { BoardWindow } from "../../../windows/board/BoardWindow";
+import { EditorWindow } from "../../../windows/editor/EditorWindow";
+import { HelpWindow } from "../../../windows/help/HelpWindow";
+import { HomeWindow } from "../../../windows/home/HomeWindow";
+import { LoginWindow } from "../../../windows/login/LoginWindow";
+import { ProjectsWindow } from "../../../windows/projects/ProjectsWindow";
+import { StatusWindow } from "../../../windows/status/StatusWindow";
+import { TransciptWindow } from "../../../windows/transcript/TranscriptWindow";
 import { NavbarContainer } from "./widgets/NavbarContainer";
 
 export class Navbar extends NavElement {
@@ -31,7 +39,35 @@ export class Navbar extends NavElement {
     }
 
     performAction(actionName: string, args: any = null): void {
-        console.log('Navbar action', actionName);
+        switch (actionName) {
+            case 'board':
+                new BoardWindow;
+                break;
+            case 'editor':
+                new EditorWindow;
+                break;
+            case 'help':
+                new HelpWindow;
+                break;
+            case 'home':
+                new HomeWindow;
+                break;
+            case 'login':
+                new LoginWindow;
+                break;
+            case 'projects':
+                new ProjectsWindow;
+                break;
+            case 'status':
+                new StatusWindow;
+                break;
+            case 'transcript':
+                new TransciptWindow;
+                break;
+            default:
+                console.log('Navbar action', actionName);
+                break;
+        }
     }
 
 }
