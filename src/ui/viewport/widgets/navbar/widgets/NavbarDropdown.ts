@@ -14,9 +14,9 @@ export class NavbarDropdown extends NavbarItem {
         this.addChild(this.menu);
     }
 
-    defaultAbsolutePositioning(): boolean {
-        return true;
-    }
+    // defaultAbsolutePositioning(): boolean {
+    //     return true;
+    // }
 
     defaultClasses(): string[] {
         const classes = ['dropdown'];

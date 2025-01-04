@@ -1,17 +1,34 @@
 import { UlElement } from "../../../../core/elements/UlElement";
-import { NavbarDropdown } from "./NavbarDropdown";
+import { NavbarItemLink } from "./NavbarItemLink";
 
 export class NavbarNav extends UlElement {
-    dropdown?: NavbarDropdown;
+    boardItem?: NavbarItemLink;
+    editorItem?: NavbarItemLink;
+    helpItem?: NavbarItemLink;
+    homeItem?: NavbarItemLink;
+    loginItem?: NavbarItemLink;
+    projectsItem?: NavbarItemLink;
+    statusItem?: NavbarItemLink;
+    transcriptItem?: NavbarItemLink;
 
     addChildren() {
         super.addChildren();
-        this.dropdown = new NavbarDropdown;
-        this.addChild(this.dropdown);
-    }
-
-    defaultAbsolutePositioning(): boolean {
-        return true;
+        this.boardItem = new NavbarItemLink('Board');
+        this.editorItem = new NavbarItemLink('Editor');
+        this.helpItem = new NavbarItemLink('Help');
+        this.homeItem = new NavbarItemLink('Home');
+        this.loginItem = new NavbarItemLink('Login');
+        this.projectsItem = new NavbarItemLink('Projects');
+        this.statusItem = new NavbarItemLink('Status');
+        this.transcriptItem = new NavbarItemLink('Transcript');
+        this.addChild(this.homeItem);
+        this.addChild(this.projectsItem);
+        this.addChild(this.editorItem);
+        this.addChild(this.transcriptItem);
+        this.addChild(this.boardItem);
+        this.addChild(this.statusItem);
+        this.addChild(this.helpItem);
+        this.addChild(this.loginItem);
     }
 
     defaultClasses(): string[] {

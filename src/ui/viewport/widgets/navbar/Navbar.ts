@@ -7,6 +7,7 @@ export class Navbar extends NavElement {
 
     constructor() {
         super();
+        (window as any).X = this;
     }
 
     addChildren() {
@@ -15,19 +16,19 @@ export class Navbar extends NavElement {
         this.addChild(this.container);
     }
 
-    defaultAbsolutePositioning(): boolean {
-        return true;
-    }
+    // defaultAbsolutePositioning(): boolean {
+    //     return true;
+    // }
 
-    defaultBottom(): number {
-        return -SizeConstants.navbarHeight;
-    }
+    // defaultBottom(): number {
+    //     return -SizeConstants.navbarHeight;
+    // }
 
     defaultClasses(): string[] {
         const classes = [
             'navbar',
-            'navbar-light',
-            'bg-light'
+            'navbar-expand-lg',
+            'bg-body-tertiary'
         ];
         return super.defaultClasses().concat(classes);
     }

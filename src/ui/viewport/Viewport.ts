@@ -14,8 +14,8 @@ import { Navbar } from "./widgets/navbar/Navbar";
 
 export class Viewport {
     documentBody: BodyElement;
-    pages: Pages;
-    viewportContainer: ViewportContainer;
+    // pages: Pages;
+    // viewportContainer: ViewportContainer;
     viewportNavbar: Navbar;
     static instance: Viewport;
 
@@ -26,34 +26,34 @@ export class Viewport {
     }
 
     private constructor() {
-        this.viewportContainer = new ViewportContainer;
+        // this.viewportContainer = new ViewportContainer;
         this.viewportNavbar = new Navbar;
         this.documentBody = BodyElement.getInstance();
-        this.pages = Pages.getInstance();
-        this.viewportContainer.addChild(this.viewportNavbar);
-        this.viewportContainer.addChild(this.pages);
-        this.documentBody.addChild(this.viewportContainer);
-        this.addPages();
-        this.selectPage('projects');
+        // this.pages = Pages.getInstance();
+        // this.viewportContainer.addChild(this.viewportNavbar);
+        // this.viewportContainer.addChild(this.pages);
+        this.documentBody.addChild(this.viewportNavbar);
+        // this.addPages();
+        // this.selectPage('projects');
     }
 
-    addPage(page: Page) {
-        this.pages.addPage(page);
-    }
+    // addPage(page: Page) {
+    //     this.pages.addPage(page);
+    // }
 
-    addPages() {
-        this.addPage(BoardPage.getInstance());
-        this.addPage(EditorPage.getInstance());
-        this.addPage(HelpPage.getInstance());
-        this.addPage(LoginPage.getInstance());
-        this.addPage(ProjectsPage.getInstance());
-        this.addPage(StatusPage.getInstance());
-        this.addPage(TopMenuPage.getInstance());
-        this.addPage(TranscriptPage.getInstance());
-    }
+    // addPages() {
+    //     this.addPage(BoardPage.getInstance());
+    //     this.addPage(EditorPage.getInstance());
+    //     this.addPage(HelpPage.getInstance());
+    //     this.addPage(LoginPage.getInstance());
+    //     this.addPage(ProjectsPage.getInstance());
+    //     this.addPage(StatusPage.getInstance());
+    //     this.addPage(TopMenuPage.getInstance());
+    //     this.addPage(TranscriptPage.getInstance());
+    // }
 
-    selectPage(tag: string) {
-        this.pages.selectPage(tag);
-    }
+    // selectPage(tag: string) {
+    //     this.pages.selectPage(tag);
+    // }
 
 }

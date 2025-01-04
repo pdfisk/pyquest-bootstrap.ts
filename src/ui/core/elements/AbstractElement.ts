@@ -32,7 +32,7 @@ export abstract class AbstractElement implements IPerformAction {
 
     addClass(className: string) {
         const classList: any = this.element?.classList;
-        if (classList !== null && !classList.contains(className))
+        if (classList !== null && !this.hasClass(className))
             classList.add(className);
     }
 
@@ -116,6 +116,13 @@ export abstract class AbstractElement implements IPerformAction {
         return false;
     }
 
+    hasClass(className: string): boolean {
+        const classList: any = this.element?.classList;
+        if (classList !== null)
+            return classList.contains(className);
+        return false;
+    }
+
     hide() {
         this.removeClass('d-block');
         this.addClass('d-none');
@@ -159,7 +166,7 @@ export abstract class AbstractElement implements IPerformAction {
 
     removeClass(className: string) {
         const classList: any = this.element?.classList;
-        if (classList !== null && classList.contains(className))
+        if (classList !== null && this.hasClass(className))
             classList.remove(className);
     }
 
@@ -193,6 +200,14 @@ export abstract class AbstractElement implements IPerformAction {
         this.setStyle('bottom', value + '');
     }
 
+    setDataBsTarget(target: string) {
+        this.setAttribute('data-bs-target', `#${target}`);
+    }
+
+    setDataBsToggle(toggle: string) {
+        this.setAttribute('data-bs-toggle', toggle);
+    }
+
     setFullSize() {
         this.addClass('w-100');
         this.addClass('h-100');
@@ -204,6 +219,11 @@ export abstract class AbstractElement implements IPerformAction {
 
     setHeightPct(value: number) {
         this.setStyle('height', value + '%');
+    }
+
+    setHref(href: string) {
+        if (this.element)
+            (this.element as any).href = href;
     }
 
     setInnerHtml(html: string) {
@@ -273,6 +293,10 @@ export abstract class AbstractElement implements IPerformAction {
 
     setTop(value: number) {
         this.setStyle('top', value + '');
+    }
+
+    setType(type: string) {
+        this.setAttribute('type', type);
     }
 
     setVisibility(value: string) {
