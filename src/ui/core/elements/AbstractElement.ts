@@ -155,7 +155,7 @@ export abstract class AbstractElement implements IPerformAction {
             (this.element as any).onclick = this.clickHandlerFn;
     }
 
-    performAction(actionName: string, args: any): void {
+    performAction(actionName: string, args: any = null): void {
         console.log('AbstractElement performAction', this.id, actionName, args);
     }
 

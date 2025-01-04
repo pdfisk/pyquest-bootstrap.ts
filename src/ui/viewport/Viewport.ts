@@ -27,7 +27,7 @@ export class Viewport {
 
     private constructor() {
         // this.viewportContainer = new ViewportContainer;
-        this.viewportNavbar = new Navbar;
+        this.viewportNavbar = Navbar.getInstance();
         this.documentBody = BodyElement.getInstance();
         // this.pages = Pages.getInstance();
         // this.viewportContainer.addChild(this.viewportNavbar);

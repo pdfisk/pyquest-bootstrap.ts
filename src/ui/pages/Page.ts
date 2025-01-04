@@ -63,7 +63,7 @@ export class Page extends Card {
         return true;
     }
 
-    performAction(actionName: string, args: any): void {
+    performAction(actionName: string, args: any=null): void {
         switch (actionName) {
             case 'select_page':
                 this.selectPage(args.tag);

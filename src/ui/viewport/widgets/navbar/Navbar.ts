@@ -1,13 +1,18 @@
-import { SizeConstants } from "../../../../constants/SizeConstants";
 import { NavElement } from "../../../core/elements/NavElement";
 import { NavbarContainer } from "./widgets/NavbarContainer";
 
 export class Navbar extends NavElement {
     container?: NavbarContainer;
+    static instance: Navbar;
 
-    constructor() {
+    static getInstance(): Navbar {
+        if (this.instance === undefined)
+            this.instance = new Navbar;
+        return this.instance;
+    }
+
+    private constructor() {
         super();
-        (window as any).X = this;
     }
 
     addChildren() {
@@ -16,14 +21,6 @@ export class Navbar extends NavElement {
         this.addChild(this.container);
     }
 
-    // defaultAbsolutePositioning(): boolean {
-    //     return true;
-    // }
-
-    // defaultBottom(): number {
-    //     return -SizeConstants.navbarHeight;
-    // }
-
     defaultClasses(): string[] {
         const classes = [
             'navbar',
@@ -31,6 +28,10 @@ export class Navbar extends NavElement {
             'bg-body-tertiary'
         ];
         return super.defaultClasses().concat(classes);
+    }
+
+    performAction(actionName: string, args: any = null): void {
+        console.log('Navbar action', actionName);
     }
 
 }

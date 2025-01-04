@@ -26,7 +26,7 @@ export class ListItem extends LiElement {
         return Object.assign(args, super.onClickArgs());
     }
 
-    performAction(actionName: string, args: any): void {
+    performAction(actionName: string, args: any=null): void {
         switch (actionName) {
             case 'select_page':
                 this.performActionSelectPage(args);

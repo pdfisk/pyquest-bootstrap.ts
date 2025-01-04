@@ -1,5 +1,4 @@
 import { AnchorElement } from "../../../../core/elements/AnchorElement";
-import { NavbarDropdown } from "./NavbarDropdown";
 
 export class NavbarLink extends AnchorElement {
 
