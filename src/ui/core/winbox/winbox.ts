@@ -1,10 +1,18 @@
-// /**
-//  * WinBox.js
-//  * Author and Copyright: Thomas Wilkerling
-//  * Licence: Apache-2.0
-//  * Hosted by Nextapps GmbH
-//  * https://github.com/nextapps-de/winbox
-//  */
+import { DivElement } from "../elements/DivElement";
+
+export class WinBox extends DivElement {
+    static zIndexCounter = 12;
+
+    constructor() {
+        super();
+    }
+
+    defaultClasses(): string[] {
+        return ['winbox'];
+    }
+
+}
+
 
 // // TODO: rename control amd state classes (min, max, modal, focus, ...) #62
 

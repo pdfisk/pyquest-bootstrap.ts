@@ -10,9 +10,11 @@ import { StatusPage } from "../pages/status/StatusPage";
 import { TopMenuPage } from "../pages/top_menu/TopMenuPage";
 import { TranscriptPage } from "../pages/transcript/TranscriptPage";
 import { ViewportContainer } from "./widgets/ViewportContainer";
+import { Desktop } from "./widgets/desktop/Desktop";
 import { Navbar } from "./widgets/navbar/Navbar";
 
 export class Viewport {
+    desktop: Desktop;
     documentBody: BodyElement;
     // pages: Pages;
     // viewportContainer: ViewportContainer;
@@ -27,12 +29,14 @@ export class Viewport {
 
     private constructor() {
         // this.viewportContainer = new ViewportContainer;
-        this.viewportNavbar = Navbar.getInstance();
+        this.desktop = Desktop.getInstance();
         this.documentBody = BodyElement.getInstance();
+        this.viewportNavbar = Navbar.getInstance();
         // this.pages = Pages.getInstance();
         // this.viewportContainer.addChild(this.viewportNavbar);
         // this.viewportContainer.addChild(this.pages);
         this.documentBody.addChild(this.viewportNavbar);
+        this.documentBody.addChild(this.desktop);
         // this.addPages();
         // this.selectPage('projects');
     }

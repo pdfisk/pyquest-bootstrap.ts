@@ -68,6 +68,10 @@ export abstract class AbstractElement implements IPerformAction {
         return '';
     }
 
+    defaultBorder(): string {
+        return '';
+    }
+
     defaultBottom(): number {
         return 0;
     }
@@ -295,6 +299,8 @@ export abstract class AbstractElement implements IPerformAction {
             this.setPositionAbsoluteWithInsets();
         if (this.defaultBackgroundColor().length > 0)
             this.setBackgroundColor(this.defaultBackgroundColor());
+        if (this.defaultBorder().length > 0)
+            this.setBorder(this.defaultBorder());
     }
 
     setText(text: string) {
@@ -322,6 +328,10 @@ export abstract class AbstractElement implements IPerformAction {
         const style: any = this.element?.style;
         if (style !== null)
             style[name] = value;
+    }
+
+    setZindex(value: number) {
+        this.setStyle('zIndex', `${value}`);
     }
 
     show() {
