@@ -1,94 +1,52 @@
-// /**
-//  * @param {Window|Element} node
-//  * @param {string} event
-//  * @param {Function} fn
-//  * @param {AddEventListenerOptions|boolean=} opt
-//  */
+import { AbstractElement } from "..";
 
-// export function addListener(node, event, fn, opt){
+export class Helper {
 
-//     node && node.addEventListener(event, fn, opt || false);
-// }
+    static addClass(node: AbstractElement, className: string) {
+        node.addClass(className);
+    }
 
-// /**
-//  * @param {Window|Element} node
-//  * @param {string} event
-//  * @param {Function} fn
-//  * @param {AddEventListenerOptions|boolean=} opt
-//  */
+    static addListener(node: AbstractElement, event: string, fn: Function, opt: boolean = false) {
+        node.addEventHandler(event, fn);
+    }
 
-// export function removeListener(node, event, fn, opt){
+    static getByClass(root: any, name: string): any {
+        return root.getElementsByClassName(name)[0];
+    }
 
-//     node && node.removeEventListener(event, fn, opt || false);
-// }
+    static hasClass(node: AbstractElement, className: string): boolean {
+        return node.hasClass(className);
+    }
 
-// /**
-//  * @param event
-//  * @param {boolean=} prevent
-//  */
+    static preventEvent(event: any, prevent: boolean) {
+        event.stopPropagation();
+        if (prevent)
+            event.preventDefault();
+    }
 
-// export function preventEvent(event, prevent){
+    static removeAttribute(node: AbstractElement, name: string) {
+        node.removeAttribute(name);
+    }
 
-//     event.stopPropagation();
-//     prevent && /*event.cancelable &&*/ event.preventDefault();
+    static removeClass(node: AbstractElement, className: string) {
+        node.removeClass(className);
+    }
 
-//     //event.stopImmediatePropagation();
-//     //event.returnValue = false;
-// }
+    static removeListener(node: AbstractElement, event: string, fn: Function, opt: boolean = false) {
+        node.removeEventHandler(event);
+    }
 
-// export function getByClass(root, name){
+    static setAttribute(node: AbstractElement, name: string, value: any) {
+        node.setAttribute(name, value);
+    }
 
-//     return root.getElementsByClassName(name)[0];
-// }
+    static setStyle(node: AbstractElement, style: string, value: any) {
+        node.setStyle(style, value);
+    }
 
-// export function addClass(node, classname){
+    static setText(node: AbstractElement, text: string) {
+        node.setText(text);
+    }
 
-//     node.classList.add(classname);
-// }
+}
 
-// export function hasClass(node, classname){
-
-//     return node.classList.contains(classname);
-// }
-
-// export function removeClass(node, classname){
-
-//     node.classList.remove(classname);
-// }
-
-// export function setStyle(node, style, value){
-
-//     value = "" + value;
-
-//     if(node["_s_" + style] !== value){
-
-//         node.style.setProperty(style, value);
-//         node["_s_" + style] = value;
-//     }
-// }
-
-// export function setAttribute(node, key, value){
-
-//     value = "" + value;
-
-//     if(node["_a_" + key] !== value){
-
-//         node.setAttribute(key, value);
-//         node["_a_" + key] = value;
-//     }
-// }
-
-// export function removeAttribute(node, key){
-
-//     if(node["_a_" + key] !== null){
-
-//         node.removeAttribute(key);
-//         node["_a_" + key] = null;
-//     }
-// }
-
-// export function setText(node, value){
-
-//     const textnode = node.firstChild;
-//     textnode ? textnode.nodeValue = value : node.textContent = value;
-// }

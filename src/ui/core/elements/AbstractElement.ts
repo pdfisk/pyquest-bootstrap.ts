@@ -164,6 +164,12 @@ export abstract class AbstractElement implements IPerformAction {
         this.setInnerHtml('');
     }
 
+    removeAttribute(name: string) {
+        if (this.element === undefined)
+            return;
+        this.element?.removeAttribute(name);
+    }
+
     removeClass(className: string) {
         const classList: any = this.element?.classList;
         if (classList !== null && this.hasClass(className))
@@ -180,6 +186,11 @@ export abstract class AbstractElement implements IPerformAction {
             this.renderChild(child);
             child.renderChildren();
         }
+    }
+
+    removeEventHandler(eventName: string) {
+        if (this.element)
+            (this.element as any).removeEventListener(eventName);
     }
 
     setAttribute(name: string, value: any) {
