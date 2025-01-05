@@ -294,6 +294,12 @@ export abstract class AbstractElement implements IPerformAction {
             (this.element as any).role = role;
     }
 
+    setStyle(name: string, value: string) {
+        const style: any = this.element?.style;
+        if (style !== null)
+            style[name] = value;
+    }
+
     setStyles() {
         if (this.defaultAbsolutePositioning())
             this.setPositionAbsoluteWithInsets();
@@ -324,10 +330,8 @@ export abstract class AbstractElement implements IPerformAction {
         this.setStyle('width', value + 'px');
     }
 
-    setStyle(name: string, value: string) {
-        const style: any = this.element?.style;
-        if (style !== null)
-            style[name] = value;
+    setWidthPct(value: number) {
+        this.setStyle('width', value + '%');
     }
 
     setZindex(value: number) {

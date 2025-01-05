@@ -1,14 +1,32 @@
+import { Desktop } from "../../viewport/widgets/desktop/Desktop";
 import { DivElement } from "../elements/DivElement";
+
 
 export class WinBox extends DivElement {
     static zIndexCounter = 12;
 
     constructor() {
         super();
+        Desktop.getInstance().addChild(this);
+    }
+
+    defaultAbsolutePositioning(): boolean {
+        return true;
+    }
+
+    defaultBorder():string {
+        return '3px solid blue';
     }
 
     defaultClasses(): string[] {
         return ['winbox'];
+    }
+
+    initialize() {
+        super.initialize();
+        this.setZindex(WinBox.zIndexCounter++);
+        this.setHeightPct(25);
+        this.setWidthPct(35);
     }
 
 }
