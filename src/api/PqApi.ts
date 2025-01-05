@@ -22,11 +22,11 @@ export class PqApi {
     }
 
     static timestamp(): string {
-        return Version.timestamp;
+        return this.getInstance().timestamp();
     }
 
     static version(): string {
-        return Version.version;
+        return this.getInstance().version();
     }
 
     private constructor() {
@@ -43,6 +43,14 @@ export class PqApi {
 
     run(code: string) {
         VmApi.run(code);
+    }
+
+    timestamp(): string {
+        return Version.timestamp;
+    }
+
+    version(): string {
+        return Version.version;
     }
 
 }
