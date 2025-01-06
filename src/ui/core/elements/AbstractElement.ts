@@ -83,6 +83,10 @@ export abstract class AbstractElement implements IPerformAction {
         return '';
     }
 
+    defaultBorderTop(): string {
+        return '';
+    }
+
     defaultBottom(): number {
         return 0;
     }
@@ -222,6 +226,10 @@ export abstract class AbstractElement implements IPerformAction {
         this.setStyle('border', value);
     }
 
+    setBorderTop(value: string) {
+        this.setStyle('borderTop', value);
+    }
+
     setBottom(value: number) {
         this.setStyle('bottom', value + '');
     }
@@ -318,6 +326,8 @@ export abstract class AbstractElement implements IPerformAction {
             this.setBackgroundColor(this.defaultBackgroundColor());
         if (this.defaultBorder().length > 0)
             this.setBorder(this.defaultBorder());
+        if (this.defaultBorderTop().length > 0)
+            this.setBorderTop(this.defaultBorderTop());
     }
 
     setText(text: string) {

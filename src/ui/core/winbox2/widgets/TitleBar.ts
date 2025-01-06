@@ -77,8 +77,6 @@ export class TitleBar extends DivElement {
         this.windowStartY = this.parentWindow.clientTop();
         evt.preventDefault();
         evt.stopPropagation();
-        // console.log('onMouseDown', evt);
-        // (window as any).X = evt;
     }
 
     onMouseMove(evt: MouseEvent) {

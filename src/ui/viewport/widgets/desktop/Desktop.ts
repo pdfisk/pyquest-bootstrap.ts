@@ -18,8 +18,8 @@ export class Desktop extends DivElement {
         return true;
     }
 
-    defaultBorder(): string {
-        return '3px solid red';
+    defaultBorderTop(): string {
+        return '1px solid slategray';
     }
 
     defaultTop(): number {
