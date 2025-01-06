@@ -1,8 +1,9 @@
 import { NavElement } from "../../../core/elements/NavElement";
-import { WinBox } from "../../../core/winbox/winbox";
+import { Window } from "../../../core/winbox2/Window";
 import { BoardWindow } from "../../../windows/board/BoardWindow";
 import { EditorWindow } from "../../../windows/editor/EditorWindow";
 import { HelpWindow } from "../../../windows/help/HelpWindow";
+import { HomeWindow } from "../../../windows/home/HomeWindow";
 import { LoginWindow } from "../../../windows/login/LoginWindow";
 import { ProjectsWindow } from "../../../windows/projects/ProjectsWindow";
 import { StatusWindow } from "../../../windows/status/StatusWindow";
@@ -50,7 +51,7 @@ export class Navbar extends NavElement {
                 new HelpWindow;
                 break;
             case 'home':
-                new WinBox;
+                new HomeWindow;
                 break;
             case 'login':
                 new LoginWindow;

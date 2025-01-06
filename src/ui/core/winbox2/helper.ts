@@ -7,7 +7,7 @@ export class Helper {
     }
 
     static addListener(node: AbstractElement, event: string, fn: Function, opt: boolean = false) {
-        node.addEventHandler(event, fn);
+        node.addEventListener(event, fn);
     }
 
     static getByClass(root: any, name: string): any {

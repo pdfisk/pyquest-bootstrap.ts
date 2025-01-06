@@ -5,7 +5,6 @@ export class CardFooter extends FluidContainer {
 
     constructor() {
         super();
-        this.setBackgroundColor('blue');
     }
 
     addClasses() {

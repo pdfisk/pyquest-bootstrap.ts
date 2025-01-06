@@ -1,8 +1,10 @@
 import { Desktop } from "../../viewport/widgets/desktop/Desktop";
 import { DivElement } from "../elements/DivElement";
+import { TitleBar } from "./widgets/TitleBar";
 
 
-export class WinBox extends DivElement {
+export class Window extends DivElement {
+    titleBar?: TitleBar;
     static zIndexCounter = 12;
 
     constructor() {
@@ -10,12 +12,22 @@ export class WinBox extends DivElement {
         Desktop.getInstance().addChild(this);
     }
 
+    addChildren() {
+        super.addChildren();
+        this.titleBar = new TitleBar(this);
+        this.addChild(this.titleBar);
+    }
+
     defaultAbsolutePositioning(): boolean {
         return true;
     }
 
-    defaultBorder():string {
-        return '3px solid blue';
+    defaultBackgroundColor(): string {
+        return 'lightgray';
+    }
+
+    defaultBorder(): string {
+        return '3px solid gray';
     }
 
     defaultClasses(): string[] {
@@ -24,8 +36,8 @@ export class WinBox extends DivElement {
 
     initialize() {
         super.initialize();
-        this.setZindex(WinBox.zIndexCounter++);
-        this.setHeightPct(25);
+        this.setZindex(Window.zIndexCounter++);
+        this.setHeightPct(35);
         this.setWidthPct(35);
     }
 

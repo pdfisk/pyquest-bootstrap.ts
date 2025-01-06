@@ -16,7 +16,6 @@ export abstract class AbstractElement implements IPerformAction {
         this.initialize();
         this.addChildren();
         this.addClasses();
-        this.addEventHandlers();
         this.setStyles();
         ElementRegistry.register(this);
     }
@@ -46,12 +45,24 @@ export abstract class AbstractElement implements IPerformAction {
     addClickHandlerFn() {
     }
 
-    addEventHandler(eventName: string, fn: Function) {
+    addEventListener(eventName: string, fn: Function, capture: boolean = false) {
         if (this.element)
-            (this.element as any)[eventName] = fn;
+            (this.element as any).addEventListener(eventName, fn);
     }
 
     addEventHandlers() {
+    }
+
+    clientLeft(): number {
+        if (this.element === undefined)
+            return 0;
+        return (this.element as any).clientLeft;
+    }
+
+    clientTop(): number {
+        if (this.element === undefined)
+            return 0;
+        return (this.element as any).clientTop;
     }
 
     createElement(): HTMLElement | null {
