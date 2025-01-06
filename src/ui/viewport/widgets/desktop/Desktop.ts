@@ -18,6 +18,10 @@ export class Desktop extends DivElement {
         return true;
     }
 
+    defaultBackgroundColor(): string {
+        return '#cfcfcf';
+    }
+
     defaultBorderTop(): string {
         return '1px solid slategray';
     }
