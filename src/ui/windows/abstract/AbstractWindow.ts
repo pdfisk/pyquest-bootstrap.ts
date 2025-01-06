@@ -1,3 +1,4 @@
+import { SizeConstants } from "../../../constants/SizeConstants";
 import { Desktop } from "../../viewport/widgets/desktop/Desktop";
 
 export abstract class AbstractWindow {
@@ -7,7 +8,8 @@ export abstract class AbstractWindow {
     constructor() {
         this.desktop = Desktop.getInstance();
         const options: any = {
-            root: this.desktop.element
+            root: this.desktop.element,
+            top: SizeConstants.navbarHeight
         };
         (window as any).X = this;
         this.winbox = new (window as any).WinBox(

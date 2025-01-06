@@ -1,5 +1,4 @@
 import { NavElement } from "../../../core/elements/NavElement";
-import { Window } from "../../../core/winbox2/Window";
 import { BoardWindow } from "../../../windows/board/BoardWindow";
 import { EditorWindow } from "../../../windows/editor/EditorWindow";
 import { HelpWindow } from "../../../windows/help/HelpWindow";
